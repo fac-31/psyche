@@ -1,7 +1,7 @@
 # Psyche - Project Hub
 
 > [!NOTE]
-> Turn-based RPG system with character progression and combat mechanics
+> Turn-based RPG system with character progression and combat mechanics.
 
 ---
 
