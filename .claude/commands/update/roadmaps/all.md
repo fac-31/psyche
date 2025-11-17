@@ -22,7 +22,7 @@ disable-model-invocation: true
     </Step>
   </Steps>
   <Roadmaps>
-    <Roadmap i="0" type="hub" active="true" path="docs/dev/roadmap/Psyche.md"  />
+    <Roadmap i="0" type="hub" active="true" path="docs/dev/roadmap/storylets.md"  />
   </Roadmaps>
   <Loops>
     <Loop i="0">
