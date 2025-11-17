@@ -36,6 +36,59 @@ Storylets are a quality-based narrative system where story content availability 
 - **Dynamic Availability**: Only contextually relevant storylets appear based on current qualities
 - **Non-Linear Structure**: Storylets enable branching and recombination without traditional tree structures
 
+### The Stat System: Core Attributes vs Storylet Qualities
+
+Psyche uses a unique stat system with two layers:
+
+#### Core Attributes (The 6 Personality Scales)
+The game has **NO traditional RPG stats** (HP, Strength, Defense, etc.). Instead, characters are defined by 6 personality attributes, each a scale from 0-100:
+
+1. **Self-Assurance**: inadequacy (0) ↔ self-assurance (50) ↔ arrogance (100)
+2. **Compassion**: unempathetic (0) ↔ compassionate (50) ↔ lack of boundaries (100)
+3. **Ambition**: unimaginative (0) ↔ ambitious (50) ↔ fantasist (100)
+4. **Drive**: passive (0) ↔ driven (50) ↔ steamroller (100)
+5. **Discernment**: gullible (0) ↔ discerning (50) ↔ overly critical (100)
+6. **Bravery**: selfish (0) ↔ brave (50) ↔ reckless (100)
+
+These attributes:
+- Affect **both** combat outcomes (mechanics TBD) and storylet availability
+- Are the fundamental stats that define a character
+- Can be prerequisites for storylets (e.g., "requires Bravery ≥ 60")
+- Are modified by battle outcomes and storylet effects
+
+#### Storylet Qualities (Additional Narrative Stats)
+In addition to the 6 core attributes, the storylet system tracks additional qualities:
+
+**Progress Qualities** (advancement through story):
+- `main_story_progress`: Tracks narrative arc advancement
+- `character_insight`: Understanding of own psychology
+- `faction_standing`: Relationship with specific groups
+
+**Menace Qualities** (obstacles and danger):
+- `psychological_strain`: Mental/emotional stress accumulation
+- `enemies_made`: Antagonistic attention
+
+**Resource Qualities** (expendable/manageable stats):
+- `social_capital`: Influence and connections
+- `secrets_learned`: Information advantage
+
+**Metric Qualities** (counters and trackers):
+- `battles_experienced`: Combat encounter count
+- `key_choices_made`: Major decision tracker
+
+#### How They Work Together
+- **Storylets can gate on both**: "Requires Compassion ≥ 60 AND social_capital ≥ 10"
+- **Effects can modify both**: A storylet might increase Bravery by 5 AND decrease psychological_strain by 10
+- **Emergent narrative**: Core attributes shape personality, qualities track narrative consequences
+- **Example**: A character with high Bravery (70) but high psychological_strain (80) might see different storylets than one with moderate Bravery (50) and low strain (20)
+
+#### Character Drives
+At character creation, players choose a **Drive** (based on Enneagram types):
+- Affects starting attribute values
+- Defines win condition for the character's arc
+- May be referenced as a quality in certain storylets
+- Examples: "The Reformer" (wants to be good), "The Individualist" (seeks significance), "The Enthusiast" (seeks satisfaction)
+
 ### References
 - [Emily Short's Quality-Based Narrative](https://emshort.blog/category/quality-based-narrative/)
 - Project roadmap: `docs/dev/roadmap/storylets-MVP.md`
@@ -65,8 +118,8 @@ Storylets are a quality-based narrative system where story content availability 
           │      │  Storylet   │ │  Quality   │
           │      │ Repository  │ │  Manager   │
           │      └──────┬──────┘ └─────┬──────┘
-          │             │               │
-          └─────────────┼───────────────┘
+          │             │              │
+          └─────────────┼──────────────┘
                         ▼
                   ┌──────────┐
                   │Character │
@@ -472,23 +525,46 @@ public interface IQualityManager
 **File**: `Models/Character.cs`
 
 **Changes**:
-- Add `QualityCollection Qualities` property
-- Update serialization to include qualities
+- Ensure the 6 core attributes are defined as properties (Self-Assurance, Compassion, Ambition, Drive, Discernment, Bravery)
+- Add `Drive DriveType` property for character creation choice
+- Add `QualityCollection Qualities` property for storylet-specific qualities
+- Update serialization to include all attributes, drive, and qualities
 - Add helper methods for quality access
+- Add methods to modify core attributes (for battle/storylet effects)
 
-**Impact**: Minimal - additive only, no breaking changes
+**Core Attributes vs Qualities**:
+- Core attributes are stored directly as properties on Character
+- Storylet qualities are stored in the QualityCollection
+- Prerequisites can check either type using unified interface
+- Effects can modify either type
+
+**Impact**: Minimal - additive only, no breaking changes to existing Character structure
 
 ### 2. Battle System Integration
 
 **File**: `Systems/BattleNarrativeIntegration.cs` (new)
 
-**Purpose**: Bridge battle outcomes to narrative system
+**Purpose**: Bridge battle outcomes to narrative system by affecting both core attributes and storylet qualities
 
-**Mappings**:
-- Victory → `reputation` quality +1
-- Enemy defeated → `combat_experience` quality +1
-- Damage taken → `exhaustion` menace quality increase
-- Items used → `resourcefulness` quality change
+**Battle Outcome Mappings**:
+
+**Core Attribute Changes**:
+- Victory → Bravery +2, Self-Assurance +1
+- Defeat (narrative consequence) → Self-Assurance -3, psychological_strain +15
+- Reckless tactics → Bravery shifts toward 100 (reckless)
+- Compassionate choices in battle → Compassion +2
+- Strategic victory → Discernment +1
+
+**Storylet Quality Changes**:
+- Victory → `battles_experienced` +1
+- Victory → `social_capital` +1 (reputation from success)
+- Defeat → `psychological_strain` +10 (stress accumulation)
+- Defeat → `enemies_made` +1 (antagonist attention)
+
+**Notes**:
+- Combat mechanics using the 6 attributes are TBD
+- Battle system will determine how attributes affect combat (e.g., high Bravery might enable aggressive tactics)
+- Defeat leads to narrative consequences (menace buildup, attribute shifts) not death
 
 ### 3. Game Loop Integration
 
@@ -516,17 +592,28 @@ Start → Battle → Victory → Update Qualities → Show Available Storylets
 
 ## Design Decisions
 
-### 1. Qualities vs Battle Stats
+### 1. Core Attributes vs Storylet Qualities
 
-**Decision**: Keep qualities separate from battle stats (HP, Strength, etc.)
+**Decision**: The 6 personality attributes are the only base stats in the game (no HP, Strength, etc.). Additional storylet-specific qualities track narrative state separately.
+
+**The 6 Core Attributes** (scales 0-100):
+- **Self-Assurance**: inadequacy (0) ↔ self-assurance (50) ↔ arrogance (100)
+- **Compassion**: unempathetic (0) ↔ compassionate (50) ↔ lack of boundaries (100)
+- **Ambition**: unimaginative (0) ↔ ambitious (50) ↔ fantasist (100)
+- **Drive**: passive (0) ↔ driven (50) ↔ steamroller (100)
+- **Discernment**: gullible (0) ↔ discerning (50) ↔ overly critical (100)
+- **Bravery**: selfish (0) ↔ brave (50) ↔ reckless (100)
 
 **Rationale**:
-- Battle stats are mechanical (affect combat calculations)
-- Qualities are narrative (affect story availability)
-- Separation allows independent balance of combat and story
-- Character can have high battle strength but low narrative reputation
+- Core attributes affect BOTH combat (mechanics TBD) and storylet availability
+- Storylet qualities are additional narrative stats (reputation, stress, story progress)
+- This creates emergent gameplay where personality affects all aspects
+- Storylets can gate on either core attributes OR additional qualities
+- Example: A storylet might require Compassion ≥ 60 AND reputation ≥ 10
 
-**Implementation**: Qualities stored in separate `QualityCollection` on Character
+**Implementation**:
+- Core attributes stored directly on `Character` model
+- Storylet qualities stored in separate `QualityCollection` on Character
 
 ### 2. Storylet Storage Format
 
@@ -600,6 +687,28 @@ new CompoundPrerequisite {
 - Allows manual curation of discovery
 
 **Default**: Priority 10 (normal), range 0-100
+
+### 7. Character Drives System
+
+**Decision**: Players choose a Drive at character creation based on Enneagram personality types
+
+**Rationale**:
+- Provides character motivation and psychological depth
+- Defines win condition specific to each character arc
+- Affects starting attribute distribution
+- May be referenced in storylet prerequisites (e.g., "only available to The Reformer")
+- Creates replay value through different character motivations
+
+**Implementation**:
+- Drive enum with values like: TheReformer, TheIndividualist, TheEnthusiast
+- Stored on Character model
+- Win condition evaluated based on Drive type (e.g., The Reformer wins by achieving high Compassion and Self-Assurance)
+- Can be used as a quality identifier in prerequisites
+
+**Example Drives**:
+- **The Reformer (E1)**: Wants to be good → Win condition: Compassion ≥ 70, Discernment ≥ 70
+- **The Individualist (E4)**: Seeks significance → Win condition: main_story_progress complete, character_insight ≥ 80
+- **The Enthusiast (E7)**: Seeks satisfaction → Win condition: low psychological_strain, high social_capital
 
 ---
 
