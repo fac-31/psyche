@@ -5,12 +5,6 @@
 
 ---
 
-> [!IMPORTANT]
-> This document refers to tasks and features that are either (a) not tied to a specific module or (b) applicable to multiple modules
-> For a status report on the entire "Those Who Came Before" project, see [README](./README.md)
-
----
-
 ## 1. Tasks
 ### 1a. Open Tasks
 #### 1a1. Due Tasks
