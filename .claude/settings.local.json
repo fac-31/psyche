@@ -5,7 +5,10 @@
       "Bash(mkdir:*)",
       "Bash(tree:*)",
       "WebFetch(domain:emshort.blog)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(git add:*)",
+      "Bash(dotnet build:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
