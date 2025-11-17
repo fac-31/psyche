@@ -4,7 +4,8 @@
       "Bash(cat:*)",
       "Bash(mkdir:*)",
       "Bash(tree:*)",
-      "WebFetch(domain:emshort.blog)"
+      "WebFetch(domain:emshort.blog)",
+      "Bash(git push)"
     ],
     "deny": [],
     "ask": []
