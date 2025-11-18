@@ -1,4 +1,4 @@
-{
+{ // A Chance Meeting
   "id": "first_encounter",
   "title": "A Chance Meeting",
   "description": "You encounter someone in distress. What will you do?",
@@ -6,7 +6,7 @@
   "prerequisites": [],
   "effects": [],
   "options": [
-    {
+    { // help
       "id": "help",
       "text": "Offer help",
       "description": "Approach the person and offer assistance",
@@ -45,7 +45,7 @@
       "priority": 10,
       "tags": ["compassionate", "social"]
     },
-    {
+    { // investigate
       "id": "investigate",
       "text": "Investigate cautiously",
       "description": "Assess the situation before committing",
@@ -84,7 +84,7 @@
       "priority": 10,
       "tags": ["discerning", "cautious"]
     },
-    {
+    { // ignore
       "id": "ignore",
       "text": "Walk past",
       "description": "This isn't your problem",
