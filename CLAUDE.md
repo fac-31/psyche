@@ -29,6 +29,13 @@ See the storylet system in action with detailed output showing character state c
 ./test-demo.sh
 ```
 
+### Storylet System Walkthrough Demo
+Experience a complete storylet interaction from start to finish - character creation, storylet encounter, option evaluation, choice, and consequences:
+```bash
+./demo-storylet.sh
+```
+This interactive demo shows the full flow of the quality-based narrative system with a step-by-step walkthrough.
+
 ### Clean
 ```bash
 dotnet clean
