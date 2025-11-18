@@ -4,7 +4,7 @@
   "description": "Only the brave or discerning dare walk this way.",
   "content": "The path ahead is treacherous. Dark clouds gather overhead, and the way forward seems fraught with peril. Your heart pounds as you consider your options.",
   "prerequisites": [
-    {
+    { // Must have played first_encounter
       "type": "StoryletPlayedRequirement",
       "properties": {
         "storyletId": "first_encounter",
@@ -13,7 +13,7 @@
     }
   ],
   "effects": [
-    {
+    { // Psychological Strain +5
       "type": "QualityEffect",
       "properties": {
         "qualityId": "psychological_strain",
