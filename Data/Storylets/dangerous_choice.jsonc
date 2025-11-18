@@ -1,4 +1,4 @@
-{
+{ // The Dangerous Path
   "id": "dangerous_choice",
   "title": "The Dangerous Path",
   "description": "Only the brave or discerning dare walk this way.",
@@ -22,7 +22,7 @@
     }
   ],
   "options": [
-    {
+    { // Brave Charge
       "id": "brave_charge",
       "text": "Charge forward bravely",
       "description": "Face the danger head-on with courage",
@@ -84,7 +84,7 @@
       "priority": 10,
       "tags": ["bravery", "danger", "story_progression"]
     },
-    {
+    { // Discerning Route
       "id": "discerning_route",
       "text": "Find a safer route",
       "description": "Use your wits to navigate around the danger",
@@ -154,7 +154,7 @@
       "priority": 10,
       "tags": ["discernment", "clever", "story_progression"]
     },
-    {
+    { // Seek Help
       "id": "seek_help",
       "text": "Seek help from your connections",
       "description": "Use your social capital to find assistance",
@@ -194,7 +194,7 @@
       "priority": 8,
       "tags": ["social", "resource_management", "story_progression"]
     },
-    {
+    { // Turn Back
       "id": "turn_back",
       "text": "Turn back for now",
       "description": "This path is too dangerous - retreat and prepare better",
