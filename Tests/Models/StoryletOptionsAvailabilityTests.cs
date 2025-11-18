@@ -208,7 +208,7 @@ public class StoryletOptionsAvailabilityTests
                     {
                         new CompoundPrerequisite
                         {
-                            Logic = CompoundLogic.Or,
+                            Logic = CompoundPrerequisite.LogicType.Or,
                             Prerequisites = new List<IPrerequisite>
                             {
                                 new AttributeRequirement { AttributeName = "Bravery", MinValue = 60 },
@@ -225,7 +225,7 @@ public class StoryletOptionsAvailabilityTests
                     {
                         new CompoundPrerequisite
                         {
-                            Logic = CompoundLogic.And,
+                            Logic = CompoundPrerequisite.LogicType.And,
                             Prerequisites = new List<IPrerequisite>
                             {
                                 new AttributeRequirement { AttributeName = "Compassion", MinValue = 60 },
