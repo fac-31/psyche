@@ -1,0 +1,108 @@
+{
+  "id": "first_encounter",
+  "title": "A Chance Meeting",
+  "description": "You encounter someone in distress. What will you do?",
+  "content": "A figure huddles in the shadows, clearly troubled. Your Compassion stirs, urging you to help, but your Discernment warns that this could be a trap.",
+  "prerequisites": [],
+  "effects": [],
+  "options": [
+    {
+      "id": "help",
+      "text": "Offer help",
+      "description": "Approach the person and offer assistance",
+      "resultText": "You approach cautiously and offer your hand. The stranger looks up with grateful eyes. 'Thank you,' they whisper. You've made a new connection.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 3
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 5
+          }
+        },
+        {
+          "type": "UnlockStoryletEffect",
+          "properties": {
+            "storyletId": "first_encounter"
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["compassionate", "social"]
+    },
+    {
+      "id": "investigate",
+      "text": "Investigate cautiously",
+      "description": "Assess the situation before committing",
+      "resultText": "You keep your distance and observe carefully. Your caution proves wise - this is no simple case of distress. You learn something valuable from watching.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 3
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "secrets_learned",
+            "delta": 1
+          }
+        },
+        {
+          "type": "UnlockStoryletEffect",
+          "properties": {
+            "storyletId": "first_encounter"
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["discerning", "cautious"]
+    },
+    {
+      "id": "ignore",
+      "text": "Walk past",
+      "description": "This isn't your problem",
+      "resultText": "You avert your gaze and continue on your way. The encounter lingers in your mind, a choice unmade.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "UnlockStoryletEffect",
+          "properties": {
+            "storyletId": "first_encounter"
+          }
+        }
+      ],
+      "priority": 5,
+      "tags": ["selfish"]
+    }
+  ],
+  "priority": 15,
+  "category": "exploration",
+  "tags": ["introduction", "social", "moral_choice"]
+}
