@@ -21,7 +21,7 @@ public class StoryletChoiceIntegrationTests
     public void LegacyStorylet_WithoutOptions_AppliesEffectsAutomatically()
     {
         // Arrange
-        TestOutputHelpers.LogTestHeader(_output, "Legacy Storylet Behavior (No Choices)");
+        TestOutputHelpers.LogScenario(_output, "Legacy Storylet Behavior (No Choices)");
 
         var character = new Character();
         character.Attributes.Bravery = 50;
@@ -58,7 +58,7 @@ public class StoryletChoiceIntegrationTests
     public void SimpleChoiceStorylet_PlayerChoosesOption_EffectsApply()
     {
         // Arrange
-        TestOutputHelpers.LogTestHeader(_output, "Simple Two-Choice Storylet");
+        TestOutputHelpers.LogScenario(_output, "Simple Two-Choice Storylet");
 
         var character = new Character();
         character.Attributes.Compassion = 50;
@@ -125,7 +125,7 @@ public class StoryletChoiceIntegrationTests
     public void GatedChoices_OnlyAvailableOptionsShown()
     {
         // Arrange
-        TestOutputHelpers.LogTestHeader(_output, "Gated Choices Based on Attributes");
+        TestOutputHelpers.LogScenario(_output, "Gated Choices Based on Attributes");
 
         var character = new Character();
         character.Attributes.Bravery = 70;
@@ -209,7 +209,7 @@ public class StoryletChoiceIntegrationTests
     public void StoryletAndOptionEffects_BothApply()
     {
         // Arrange
-        TestOutputHelpers.LogTestHeader(_output, "Storylet-Level and Option-Level Effects");
+        TestOutputHelpers.LogScenario(_output, "Storylet-Level and Option-Level Effects");
 
         var character = new Character();
         character.Attributes.Bravery = 50;
@@ -272,7 +272,7 @@ public class StoryletChoiceIntegrationTests
     public void ComplexScenario_CompoundPrerequisitesAndEffects()
     {
         // Arrange
-        TestOutputHelpers.LogTestHeader(_output, "Complex Multi-Quality Scenario");
+        TestOutputHelpers.LogScenario(_output, "Complex Multi-Quality Scenario");
 
         var character = new Character();
         character.Attributes.Bravery = 65;
@@ -302,12 +302,12 @@ public class StoryletChoiceIntegrationTests
                     {
                         new CompoundPrerequisite
                         {
-                            Logic = CompoundLogic.And,
+                            Logic = CompoundPrerequisite.LogicType.And,
                             Prerequisites = new List<IPrerequisite>
                             {
                                 new CompoundPrerequisite
                                 {
-                                    Logic = CompoundLogic.Or,
+                                    Logic = CompoundPrerequisite.LogicType.Or,
                                     Prerequisites = new List<IPrerequisite>
                                     {
                                         new AttributeRequirement { AttributeName = "Bravery", MinValue = 60 },
@@ -391,7 +391,7 @@ public class StoryletChoiceIntegrationTests
     public void AllOptionsLocked_NoChoicesAvailable()
     {
         // Arrange
-        TestOutputHelpers.LogTestHeader(_output, "All Options Locked Scenario");
+        TestOutputHelpers.LogScenario(_output, "All Options Locked Scenario");
 
         var character = new Character();
         character.Attributes.Bravery = 30;
@@ -443,7 +443,7 @@ public class StoryletChoiceIntegrationTests
     public void OptionUnlockingChain_ChoiceUnlocksNextStorylet()
     {
         // Arrange
-        TestOutputHelpers.LogTestHeader(_output, "Option Choice Unlocks Future Storylet");
+        TestOutputHelpers.LogScenario(_output, "Option Choice Unlocks Future Storylet");
 
         var character = new Character();
         character.Attributes.Compassion = 60;
