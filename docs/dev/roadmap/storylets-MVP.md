@@ -21,25 +21,54 @@
 ## 2. MVP Milestones
 
 ### M1: Quality System
+
+**Core Attribute System** (6 personality scales 0-100):
+- Self-Assurance: inadequacy (0) ↔ self-assurance (50) ↔ arrogance (100)
+- Compassion: unempathetic (0) ↔ compassionate (50) ↔ lack of boundaries (100)
+- Ambition: unimaginative (0) ↔ ambitious (50) ↔ fantasist (100)
+- Drive: passive (0) ↔ driven (50) ↔ steamroller (100)
+- Discernment: gullible (0) ↔ discerning (50) ↔ overly critical (100)
+- Bravery: selfish (0) ↔ brave (50) ↔ reckless (100)
+
+**Storylet Quality System**:
 - Quality model definition (Progress, Menace, Resource, Metric types)
 - QualityCollection for managing character qualities
-- Character integration (add Qualities property)
+- Character integration (add 6 core attributes + Qualities property + Drive property)
 - QualityManager for tracking and modification
 - Quality change event notifications
-- Serialization support for qualities
+- Serialization support for core attributes, drive, and qualities
+
+**Defined Qualities for MVP**:
+- Progress: `main_story_progress`, `character_insight`, `faction_standing`
+- Menace: `psychological_strain`, `enemies_made`
+- Resource: `social_capital`, `secrets_learned`
+- Metric: `battles_experienced`, `key_choices_made`
 
 ### M2: Storylet Core Engine
 - Storylet model definition (content, prerequisites, effects)
 - IPrerequisite interface and implementations
-  - QualityRequirement (min/max value checks)
+  - AttributeRequirement (check core attributes like Bravery ≥ 60)
+  - QualityRequirement (check storylet qualities like social_capital ≥ 10)
   - CompoundPrerequisite (AND/OR logic)
   - StoryletPlayedRequirement (for sequencing)
 - IEffect interface and implementations
-  - QualityEffect (modify quality values)
+  - AttributeEffect (modify core attributes: Bravery +5)
+  - QualityEffect (modify storylet qualities: psychological_strain -10)
   - UnlockStoryletEffect (enable new storylets)
   - CompoundEffect (multiple effects)
 - Prerequisite evaluation logic
 - Effect application system
+
+**Example Prerequisites**:
+- Simple: Bravery ≥ 60
+- Simple: social_capital ≥ 10
+- Compound: (Compassion ≥ 60 AND psychological_strain < 50)
+- Complex: ((Bravery ≥ 60 OR Discernment ≥ 70) AND social_capital ≥ 5)
+
+**Example Effects**:
+- Modify attribute: Bravery +5, Self-Assurance +2
+- Modify quality: psychological_strain -10, social_capital +5
+- Mixed: Compassion +3, enemies_made -1, main_story_progress +1
 
 ### M3: Storylet Management
 - StoryletRepository (storage and retrieval)
@@ -65,16 +94,24 @@
 
 ### M5: Content & Testing
 - Create 10-15 demo storylets
-  - Linear progression arc (5 storylets)
-  - Branching paths (3 storylets)
-  - Resource management (2 storylets)
-  - Menace/consequence system (3 storylets)
+  - **Linear progression arc** (5 storylets): Uses `main_story_progress` to unlock sequentially. Gates on core attributes (Bravery, Compassion) and increases `character_insight`
+  - **Branching paths** (3 storylets): Choices affect both core attributes and qualities. High Compassion path vs High Bravery path, different `social_capital` and `enemies_made` outcomes
+  - **Resource management** (2 storylets): Requires spending `social_capital` or `secrets_learned`, rewards with attribute boosts
+  - **Menace/consequence system** (3 storylets): Tracks `psychological_strain` buildup. High strain unlocks crisis storylets. Resolution decreases strain, increases `character_insight`
 - Unit test suite for quality system
+  - Test core attribute modifications
+  - Test storylet quality modifications
+  - Test bounds checking (0-100 for attributes)
 - Unit tests for prerequisites and effects
+  - AttributeRequirement and QualityRequirement
+  - Compound prerequisites with attributes and qualities
+  - AttributeEffect and QualityEffect
 - Unit tests for storylet availability
 - Integration tests (full narrative flow)
+  - Battle → attribute changes → storylet unlock
+  - Storylet effect → new storylets available
 - End-to-end playthrough testing
-- Example playthrough documentation
+- Example playthrough documentation showing attribute and quality changes
 
 ---
 

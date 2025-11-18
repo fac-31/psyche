@@ -23,6 +23,12 @@ dotnet run
 dotnet test
 ```
 
+### Testing with Storylet Demo Output
+See the storylet system in action with detailed output showing character state changes, prerequisite evaluation, and effect application:
+```bash
+./test-demo.sh
+```
+
 ### Clean
 ```bash
 dotnet clean
