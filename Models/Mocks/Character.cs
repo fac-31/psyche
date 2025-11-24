@@ -28,13 +28,14 @@ public class Character
         return Qualities.TryGetValue(qualityId, out var value) ? value : 0;
     }
 
-    /// <summary>Modifies a quality value, creating it if it doesn't exist.</summary>
+    /// <summary>Modifies a quality value, creating it if it doesn't exist. Clamps result to 0-100.</summary>
     /// <param name="qualityId">The ID of the quality to modify.</param>
     /// <param name="delta">The amount to add (positive) or subtract (negative).</param>
     public void ModifyQuality(string qualityId, int delta)
     {
         var currentValue = GetQualityValue(qualityId);
-        Qualities[qualityId] = currentValue + delta;
+        var newValue = currentValue + delta;
+        Qualities[qualityId] = Math.Clamp(newValue, 0, 100);
     }
 
     /// <summary>Checks if a storylet has been played.</summary>
