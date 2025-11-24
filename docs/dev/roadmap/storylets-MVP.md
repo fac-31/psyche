@@ -11,10 +11,20 @@
 <!-- No due tasks -->
 
 #### 1a2. Other Tasks
-<!-- No other tasks -->
+- Create remaining 8-13 demo storylets to complete M5 content requirements
+  - Linear progression arc: 3 more storylets needed (2/5 complete)
+  - Branching paths: 3 storylets needed
+  - Resource management: 2 storylets needed
+  - Menace/consequence system: 3 storylets needed
 
 ### 1b. Blocked Tasks
-<!-- No blocked tasks -->
+- **M4: Integration & UI** - Blocked until core quality system integration is verified
+  - StoryletUI console interface
+  - Game loop integration (narrative phase)
+  - BattleNarrativeIntegration
+  - Character UI updates
+  - Battle → Narrative → Exploration flow
+  - Save/load integration
 
 ---
 
@@ -185,11 +195,54 @@
 
 ## 4. Work Record
 ### 4a. Completed Milestones
-<!-- No completed milestones -->
+
+#### ✅ M2: Storylet Core Engine (Completed 2025-11-24)
+- ✅ Storylet model definition with content, prerequisites, effects, and options
+- ✅ StoryletOption model for choices within storylets
+- ✅ StoryletValidationResult for validation feedback
+- ✅ IPrerequisite interface and implementations:
+  - AttributeRequirement (check core attributes like Bravery ≥ 60)
+  - QualityRequirement (check storylet qualities like social_capital ≥ 10)
+  - CompoundPrerequisite (AND/OR logic)
+  - StoryletPlayedRequirement (for sequencing)
+- ✅ IEffect interface and implementations:
+  - AttributeEffect (modify core attributes: Bravery +5)
+  - QualityEffect (modify storylet qualities: psychological_strain -10)
+  - UnlockStoryletEffect (enable new storylets)
+  - CompoundEffect (multiple effects)
+- ✅ Prerequisite evaluation logic with validation
+- ✅ Effect application system
+
+#### ✅ M3: Storylet Management (Completed 2025-11-24)
+- ✅ IStoryletRepository interface (GetById, GetAll, GetByCategory, GetByTags, Save, Delete, Reload)
+- ✅ JsonStoryletRepository implementation with file-based storage
+- ✅ JSON storylet schema definition (StoryletDto, StoryletOptionDto, PrerequisiteDto, EffectDto)
+- ✅ JSON loading and parsing with JSONC support (comments and trailing commas)
+- ✅ StoryletJsonConverter for bidirectional serialization with polymorphic type handling
+- ✅ StoryletAvailability calculator (IsAvailable, GetAvailableOptions methods)
+- ✅ Priority/weighting system for display order (priority property on storylets and options)
+- ✅ Storylet validation system (Validate method with error collection)
+- ✅ Played storylet tracking support via StoryletPlayedRequirement
 
 ### 4b. Completed Tasks
 #### 4b1. Record of Past Deadlines
 <!-- No past deadlines -->
 
 #### 4b2. Record of Other Completed Tasks
-<!-- No other completed tasks -->
+
+**M5: Content & Testing (Partial - 2025-11-24)**
+- ✅ Created 2/15 demo storylets:
+  - `first_encounter.jsonc` - Simple introductory storylet with attribute-based choices
+  - `dangerous_choice.jsonc` - Complex storylet with compound prerequisites and branching paths
+- ✅ Comprehensive unit test suite (1,675+ lines):
+  - JsonStoryletRepositoryTests (337 lines) - Repository CRUD, file loading, validation
+  - StoryletJsonConverterTests (532 lines) - Bidirectional conversion, polymorphic deserialization
+  - StoryletOptionTests (221 lines) - Option evaluation and effect application
+  - StoryletOptionsAvailabilityTests (350 lines) - Complex availability logic
+  - StoryletValidationTests (235 lines) - Validation rules
+- ✅ Integration tests (509 lines):
+  - StoryletChoiceIntegrationTests - End-to-end storylet execution with state changes
+- ✅ Interactive walkthrough demo:
+  - StoryletWalkthroughDemo.cs - Step-by-step demonstration of storylet flow
+  - demo-storylet.sh - Shell script to run demo
+  - Documentation in CLAUDE.md
