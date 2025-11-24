@@ -1,0 +1,148 @@
+{
+  // A6: Continuation of the psychological crisis chain - the recovery phase
+  "id": "A6",
+  "title": "Aftermath and Recovery",
+  "description": "You survived the crisis. Now comes the long, unglamorous work of healing.",
+  "content": "The acute crisis has passed, but you're left with the aftermath—the relationships damaged, the time lost, the person you used to be who no longer exists. Recovery isn't dramatic or linear. It's showing up to therapy. It's taking medication. It's rebuilding routines one small habit at a time. It's forgiving yourself for things you did or didn't do during the worst of it. You're learning that survival was just the first step. Now comes the harder work of actually living again.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "A5",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "A6"
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "patient_healing",
+      "text": "Take recovery slowly and seriously",
+      "description": "This isn't a race. Heal at your own pace.",
+      "resultText": "You commit to the unsexy work of genuine recovery. You show up for appointments. You practice coping skills. You rest when you need to, push when you can, and try to distinguish between the two. Some days are better than others. Progress isn't linear. But when you look back over months, you can see real change. You're not who you were before the crisis—but you're becoming someone you can live with being.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 18
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["healing", "patience"]
+    },
+    {
+      "id": "rush_normalcy",
+      "text": "Try to get back to normal as quickly as possible",
+      "description": "You've been in crisis long enough. Time to be okay.",
+      "resultText": "You're so tired of being broken, so desperate to be normal again, that you rush the recovery. You stop therapy too soon, taper off medication against advice, push yourself before you're ready. Some of it works—you're functional again faster than anyone expected. But there's a fragility to this recovery, cracks papered over rather than healed. You're not sure if you're genuinely better or just better at pretending.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["rushing", "fragility"]
+    },
+    {
+      "id": "help_others",
+      "text": "Use your experience to help others in crisis",
+      "description": "Transform your pain into purpose.",
+      "resultText": "You're not fully healed—maybe you never will be—but your experience gives you credibility and compassion for others who are struggling. You start showing up for people in the places you needed someone to show up for you. Peer support groups. Crisis hotlines. Just being the person who doesn't judge, who understands. Your recovery becomes intertwined with helping others recover. The healing is mutual.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["service", "meaning"]
+    }
+  ],
+  "priority": 15,
+  "category": "mental_health",
+  "tags": ["psychological_strain", "recovery", "chain", "aftermath"]
+}

@@ -1,0 +1,134 @@
+{
+  // Social capital loss: An event that damages social standing
+  "id": "reputation_damaged",
+  "title": "The Fall from Grace",
+  "description": "Something damages your social standing. Connections withdraw. Doors close.",
+  "content": "The damage comes quickly—a scandal, a betrayal revealed, a mistake made public, or simply association with the wrong people at the wrong time. Whatever the cause, the effect is clear: your social capital is evaporating. Calls go unreturned. Invitations stop coming. People who sought your company now avoid you. You're learning that social standing is more fragile than it seemed, built on reputation that can crumble in moments.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "social_capital",
+        "delta": -20
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "retreat_shame",
+      "text": "Hide until this blows over",
+      "description": "Maybe if you disappear, people will forget.",
+      "resultText": "You withdraw from social spaces, hoping the scandal will fade if you're not there to remind people of it. You stop showing up, stop reaching out, stop trying. The immediate pain of rejection lessens when you're not constantly facing it. But your network atrophies in your absence. By the time you're ready to re-emerge, your connections have moved on without you. The temporary retreat becomes semi-permanent exile.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["shame", "withdrawal"]
+    },
+    {
+      "id": "rebuild_slowly",
+      "text": "Start rebuilding trust one person at a time",
+      "description": "Social capital lost can be earned back.",
+      "resultText": "You acknowledge the damage without wallowing in it. Yes, you've lost standing. Now begins the long work of rebuilding. You reach out to people who might still trust you. You make amends where possible. You demonstrate through consistent action that whatever caused the damage doesn't define you. It's humbling, slower than the fall, but gradually people start giving you second chances. Trust, once broken, can be rebuilt—just not quickly.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["redemption", "rebuilding"]
+    },
+    {
+      "id": "new_network",
+      "text": "Find a different social circle",
+      "description": "If this network is closed, find another.",
+      "resultText": "You decide the network that rejected you isn't the only game in town. You start building connections in different spaces, with different people, where your damaged reputation doesn't follow you. It's starting over, but it's also liberating. You're not trying to reclaim your old standing; you're building new standing in a new place. The old doors are closed, but other doors are opening.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["adaptation", "fresh_start"]
+    }
+  ],
+  "priority": 10,
+  "category": "social",
+  "tags": ["social_capital", "reputation", "character_development"]
+}

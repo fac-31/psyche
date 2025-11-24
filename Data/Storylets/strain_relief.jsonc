@@ -1,0 +1,134 @@
+{
+  // Psychological strain relief: An event that reduces stress
+  "id": "strain_relief",
+  "title": "A Moment of Ease",
+  "description": "Something alleviates the psychological pressure you've been carrying.",
+  "content": "It happens unexpectedly—a burden lifted, a problem resolved, a moment of genuine rest. The constant tension you'd grown accustomed to loosens slightly. Your shoulders drop. Your jaw unclenches. You take a full breath for what feels like the first time in weeks. The relief isn't total, but it's real. You remember what it feels like to not be constantly braced against the next crisis.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "psychological_strain",
+        "delta": -12
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "savor_relief",
+      "text": "Just let yourself rest",
+      "description": "Don't rush to fill the space with new stress.",
+      "resultText": "You resist the urge to immediately take on something new or worry about what comes next. You just... rest. Let the relief sink in. Enjoy the absence of pressure. It feels almost wrong, this stillness, but also necessary. Your body remembers how to relax. Your mind remembers how to wander without catastrophizing. You're relearning that not every moment has to be crisis management.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["rest", "healing"]
+    },
+    {
+      "id": "process_experience",
+      "text": "Reflect on what led to the strain",
+      "description": "Use this clarity to understand yourself better.",
+      "resultText": "With the pressure eased, you have space to actually examine what happened. What pushed you to that point? What patterns can you identify? What warning signs did you miss or ignore? The analysis is valuable—you're learning about your limits, your triggers, your needs. The relief isn't just a respite; it's an opportunity to become wiser about managing your mental health.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["learning", "growth"]
+    },
+    {
+      "id": "help_others",
+      "text": "Share this relief with others who are struggling",
+      "description": "You know what strain feels like. Help lighten someone else's load.",
+      "resultText": "The relief makes you think of others still carrying heavy loads. You reach out, offer help, share resources, just be present for someone who's where you were. Your recent experience makes you credible—you're not speaking theoretically about stress; you've just lived it. The act of helping extends your own relief, creating a virtuous cycle. Care, it turns out, can be mutual.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["compassion", "community"]
+    }
+  ],
+  "priority": 10,
+  "category": "mental_health",
+  "tags": ["psychological_strain", "relief", "character_development"]
+}

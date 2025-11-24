@@ -1,0 +1,148 @@
+{
+  // C2: Second stage of the enemy/conflict chain
+  "id": "C2",
+  "title": "The Vendetta Begins",
+  "description": "What started as simple enmity has evolved into active conflict.",
+  "content": "It's no longer just bad blood—it's an actual vendetta. Your enemies aren't just disliking you from a distance; they're taking action. Small sabotages. Reputation attacks. Strategic undermining. You're not imagining it—there's a coordinated effort to damage you. The conflict has moved from potential to kinetic, from cold to hot. You're in a fight now, whether you wanted one or not. The question is how you respond when enmity becomes warfare.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "C1",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "C2"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "enemies_made",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "retaliate_measured",
+      "text": "Respond proportionally",
+      "description": "Match their escalation level.",
+      "resultText": "You respond to their actions with calibrated retaliation. They undermine you professionally; you do the same. They attack your reputation; you defend it and highlight their flaws. You're trying to establish equilibrium—showing them you won't be passive while not escalating beyond their level. It's tactical, controlled. But you're also aware that 'proportional response' is its own kind of escalation spiral. Neither side wants to be the one who backed down.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["retaliation", "escalation"]
+    },
+    {
+      "id": "seek_deescalation",
+      "text": "Try to end this before it gets worse",
+      "description": "Someone has to be the adult.",
+      "resultText": "You reach out through back channels or directly, trying to establish a ceasefire. You're willing to make concessions, find compromise, create off-ramps from this conflict. It's the harder path—your pride resists backing down, especially when they struck first. But you're trying to be strategic rather than reactive. Not every battle needs to be fought to the bitter end. Sometimes the bravest thing is choosing peace over vindication.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 55
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["deescalation", "courage"]
+    },
+    {
+      "id": "overwhelming_response",
+      "text": "Hit back so hard they won't try again",
+      "description": "End this decisively.",
+      "resultText": "You decide that measured response just prolongs the conflict. You unleash everything you have—expose their vulnerabilities, turn their allies, destroy their reputation. The goal isn't equilibrium; it's total victory. It's effective and brutal. They reel from the assault. But you've also shown everyone what you're capable of when threatened. That might deter future enemies, or it might convince them you're too dangerous to leave standing. Either way, there's no going back.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 18
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["overwhelming_force", "brutality"]
+    }
+  ],
+  "priority": 15,
+  "category": "conflict",
+  "tags": ["enemies_made", "vendetta", "chain", "escalation"]
+}

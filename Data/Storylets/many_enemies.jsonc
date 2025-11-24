@@ -1,0 +1,141 @@
+{
+  // C1: High enemies_made - the beginning of a conflict chain
+  "id": "C1",
+  "title": "Surrounded by Adversaries",
+  "description": "You've accumulated enemies. They remember. They're waiting.",
+  "content": "You can feel it—the weight of accumulated antagonism. There are people out there who actively dislike you, who work against you, who would be pleased to see you fail. Maybe you earned their enmity through your actions. Maybe you were just in their way. Maybe you stood for something they opposed. However it happened, you're now a person with enemies, and that changes how you move through the world. Trust becomes harder. Paranoia becomes rational. Every setback might be sabotage.",
+  "prerequisites": [
+    {
+      "type": "QualityRequirement",
+      "properties": {
+        "qualityId": "enemies_made",
+        "minValue": 70
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "C1"
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "fortify_defenses",
+      "text": "Protect yourself from their actions",
+      "description": "If they're coming for you, be ready.",
+      "resultText": "You start living more defensively. You're careful about what you share, who you trust, where you're vulnerable. You build alliances specifically to counter your enemies. You document everything in case you need to defend yourself. It's exhausting, this constant vigilance, but it also feels necessary. Your enemies are real, and pretending otherwise would be naive. So you prepare, and you watch, and you wait.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["defense", "paranoia"]
+    },
+    {
+      "id": "seek_reconciliation",
+      "text": "Try to make peace with some of them",
+      "description": "Not all enmity has to be permanent.",
+      "resultText": "You start reaching out to enemies, not all of them, but the ones where reconciliation seems possible. Apologizing where you were wrong. Seeking understanding where there was misunderstanding. Finding common ground where only opposition existed. It's humbling and difficult, and not everyone accepts your overtures. But some do. The weight of accumulated antagonism begins to lighten. You're learning that enmity, like all relationships, can change.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -25
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["reconciliation", "healing"]
+    },
+    {
+      "id": "go_on_offense",
+      "text": "Strike first before they do",
+      "description": "The best defense is a good offense.",
+      "resultText": "You decide that waiting for your enemies to act is giving them too much power. You start taking action against them first—undermining their positions, exposing their weaknesses, turning their allies against them. It's proactive, aggressive, and effective. But it also escalates everything. Each enemy you neutralize seems to create two more. You're winning individual battles while the war intensifies. The question becomes: when does it end?",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 55
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["escalation", "conflict"]
+    }
+  ],
+  "priority": 15,
+  "category": "conflict",
+  "tags": ["enemies_made", "antagonism", "chain_start"]
+}

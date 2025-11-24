@@ -1,0 +1,169 @@
+{
+  // B5: Fifth stage of the social power chain
+  "id": "B5",
+  "title": "The Puppet Master",
+  "description": "You don't just participate in power—you shape it from behind the scenes.",
+  "content": "You've transcended being merely powerful. Now you shape what power means and how it operates. A word from you can make or break careers. Your strategic silence speaks as loudly as your endorsement. You don't need to be in every room because people anticipate what you'd want before acting. You've become a gravitational force in the social landscape, warping everything around you even when you're not present. It's the culmination of everything you've built, but it's also terrifying. This much power changes you in ways you're not sure you can see.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "B4",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "B5"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "social_capital",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "embrace_architect",
+      "text": "Shape the world according to your vision",
+      "description": "You've earned this power. Use it.",
+      "resultText": "You stop questioning whether you should have this much influence and start wielding it intentionally. You orchestrate outcomes, position people strategically, shape narratives to serve your goals. It's exhilarating—you're not just playing the game anymore; you're designing it. People who don't even know your name are living in systems you've influenced. The power is absolute, and you've made peace with that. Or at least you've stopped asking if you should have.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["control", "architect"]
+    },
+    {
+      "id": "recognize_corruption",
+      "text": "Understand what you've become",
+      "description": "This isn't who you meant to be.",
+      "resultText": "You look at yourself with clear eyes and don't entirely like what you see. The power has changed you—made you more calculating, less compassionate, more comfortable with manipulation than you ever intended to be. You're not a monster, but you're not who you set out to be either. The question is whether it's too late to course-correct, whether you can hold this much power without it holding you. You don't have answers, but at least you're still asking the questions.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 70
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 25
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["self_awareness", "reckoning"]
+    },
+    {
+      "id": "dismantle_carefully",
+      "text": "Begin dismantling the structures of concentrated power",
+      "description": "Including your own.",
+      "resultText": "You make a radical decision: you're going to use your power to reduce the amount of power anyone—including you—can hold. You start pushing for transparency, accountability, distributed decision-making. You're deliberately making yourself less powerful, which everyone finds baffling. Why would you give up what you've spent so long building? Because you've seen what concentrated power does to people, and you don't want to be another cautionary tale. It's the hardest thing you've ever done.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 75
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["sacrifice", "reform"]
+    }
+  ],
+  "priority": 15,
+  "category": "social",
+  "tags": ["social_capital", "power", "chain", "corruption"]
+}

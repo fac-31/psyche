@@ -1,0 +1,134 @@
+{
+  // Enemies made loss: An event that resolves conflict
+  "id": "reconciliation",
+  "title": "Bridges Rebuilt",
+  "description": "An enemy becomes something else—maybe not a friend, but no longer an adversary.",
+  "content": "The reconciliation happens unexpectedly. Maybe one of you reaches out. Maybe circumstances force collaboration. Maybe enough time passes that the original conflict feels less important. However it happens, the antagonism dissolves. You're not necessarily friends now, but you're no longer enemies either. The relief is palpable—you didn't realize how much energy was going into maintaining that enmity until you were released from it.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "enemies_made",
+        "delta": -20
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "embrace_peace",
+      "text": "Let go of the hostility completely",
+      "description": "Some grudges aren't worth keeping.",
+      "resultText": "You don't just accept the reconciliation—you embrace it. You let go of the resentment, the desire for vindication, the narrative where you were right and they were wrong. It's liberating. The mental and emotional space that was occupied by this conflict is suddenly available for something else. You're reminded that most enmity is a choice you can unmake. Not all conflicts are permanent unless you insist they are.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["peace", "release"]
+    },
+    {
+      "id": "remain_wary",
+      "text": "Accept the truce but stay cautious",
+      "description": "Just because they're not an enemy now doesn't mean they won't be again.",
+      "resultText": "You're glad the open hostility has ended, but you're not naive. People who were enemies once can become enemies again. You maintain some distance, some wariness. You don't trust them, even if you're no longer fighting them. It's a pragmatic stance that protects you but also prevents genuine reconciliation. The conflict may be over, but its shadow remains. You're at peace, but not healed.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["caution", "wariness"]
+    },
+    {
+      "id": "build_alliance",
+      "text": "Turn former enemy into ally",
+      "description": "The strongest alliances are sometimes forged from former conflicts.",
+      "resultText": "You don't just end the enmity—you actively build something positive in its place. You reach out, find common ground, discover that the person you were fighting might actually be someone you can work with. Former enemies sometimes make the best allies because they've seen you at your worst and vice versa. There's a kind of honesty in relationships that survive conflict. You're building not just peace but partnership.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -25
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 20
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["transformation", "alliance"]
+    }
+  ],
+  "priority": 10,
+  "category": "conflict",
+  "tags": ["enemies_made", "reconciliation", "character_development"]
+}

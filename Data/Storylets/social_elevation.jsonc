@@ -1,0 +1,148 @@
+{
+  // B2: Second stage of the social power chain
+  "id": "B2",
+  "title": "Social Elevation",
+  "description": "Your influence has grown beyond simple connections into something more significant.",
+  "content": "You're no longer just well-connected—you're becoming a connector yourself. People come to you for introductions. Your endorsement carries weight. You're invited not just to participate in conversations but to shape them. The social capital you've accumulated is starting to feel like actual power. You can make things happen with a few strategic conversations. The question is whether you're ready for the responsibilities and temptations that come with this level of influence.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "B1",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "B2"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "social_capital",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "wield_carefully",
+      "text": "Use this power with restraint and ethics",
+      "description": "With great power comes great responsibility.",
+      "resultText": "You're intentional about how you use your growing influence. You make introductions thoughtfully, considering both parties' interests. You speak up in conversations, but you also listen. You use your position to advocate for good ideas and good people, but you're careful not to abuse the trust others place in you. The power is tempting, but you're determined to wield it ethically. So far, you're succeeding.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["ethics", "responsibility"]
+    },
+    {
+      "id": "expand_aggressively",
+      "text": "Push for even more influence",
+      "description": "Why stop here when you could go further?",
+      "resultText": "You start actively working to expand your influence. You cultivate relationships strategically, position yourself in key conversations, make sure your name is associated with important initiatives. It's calculated, ambitious, effective. Your network and influence grow substantially. But you're also aware that some people are starting to see you as manipulative, as someone who values connections for what they can get rather than genuine relationship. You tell yourself that's just jealousy.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Ambition",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 3
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["ambition", "expansion"]
+    },
+    {
+      "id": "democratize_access",
+      "text": "Use your position to make these networks more inclusive",
+      "description": "Break down the gates you just walked through.",
+      "resultText": "Your elevation gives you a unique opportunity: you can now work to make these exclusive spaces less exclusive. You advocate for broadening participation, challenge gatekeeping, deliberately include people who wouldn't normally get access. Some of the established power brokers resist—they liked it exclusive—but others appreciate the fresh perspectives. You're not just ascending; you're trying to change the ladder itself.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 55
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["inclusion", "reform"]
+    }
+  ],
+  "priority": 15,
+  "category": "social",
+  "tags": ["social_capital", "power", "chain", "elevation"]
+}

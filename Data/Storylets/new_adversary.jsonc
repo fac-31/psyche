@@ -1,0 +1,134 @@
+{
+  // Enemies made gain: An event that creates a new enemy
+  "id": "new_adversary",
+  "title": "A New Enemy Emerges",
+  "description": "You've made someone angry enough that they're now actively working against you.",
+  "content": "It might have been something you said, something you did, a position you took, or simply being in someone's way. However it happened, you've acquired a new enemy. Someone who was neutral or maybe even friendly now actively opposes you. You can see it in how they look at you, how they talk about you when they think you can't hear, how they position themselves against your interests. The hostility is real and it's growing. Another name added to the list of people who want to see you fail.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "enemies_made",
+        "delta": 15
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "accept_consequence",
+      "text": "You stood for something; this is the cost",
+      "description": "Not all enmity is avoidable.",
+      "resultText": "You examine what led to this new enemy and realize you wouldn't change your actions even knowing the outcome. You took a stand, spoke a truth, defended a principle—and this person's opposition is the consequence. You accept it. Not every conflict can or should be avoided. Making enemies sometimes means you're doing something that matters. You file this person away as a cost of having convictions, and you keep moving forward.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["conviction", "acceptance"]
+    },
+    {
+      "id": "immediate_repair",
+      "text": "Try to fix this before it escalates",
+      "description": "Address the enmity while it's still new.",
+      "resultText": "You reach out immediately, before positions harden and narratives solidify. You apologize if appropriate, explain if there was misunderstanding, or simply acknowledge that you've created friction and want to address it. It's awkward and vulnerable, but catching enmity early sometimes prevents it from becoming permanent. Not every new enemy has to stay an enemy if you're willing to do the uncomfortable work of repair.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["repair", "prevention"]
+    },
+    {
+      "id": "prepare_for_conflict",
+      "text": "If they're going to be an enemy, be ready",
+      "description": "Know your adversaries.",
+      "resultText": "You accept the new enmity and immediately start gathering information. What are their weaknesses? Who are their allies? How might they act against you? You're not escalating yet, but you're preparing for if they do. The new enemy becomes a strategic consideration rather than just an emotional one. You'll hope for peace but prepare for conflict. After all, they made the first move by becoming your adversary.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "secrets_learned",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["strategy", "preparation"]
+    }
+  ],
+  "priority": 10,
+  "category": "conflict",
+  "tags": ["enemies_made", "adversary", "character_development"]
+}

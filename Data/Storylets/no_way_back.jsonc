@@ -1,0 +1,169 @@
+{
+  // C5: Fifth stage of the enemy/conflict chain
+  "id": "C5",
+  "title": "No Way Back",
+  "description": "The conflict has reached a point of no return. There's no peaceful resolution left.",
+  "content": "You've crossed the Rubicon. So have they. Too much has been said, too much has been done, too many lines have been crossed. The possibility of reconciliation, of de-escalation, of finding common ground—it's all gone. This ends only one way now: with someone destroyed. The tragedy is that you both understand this, and neither of you can figure out how to stop it. The momentum has its own gravity now, pulling you toward an ending neither of you can avoid.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "C4",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "C5"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "enemies_made",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "total_war",
+      "text": "Commit everything to destroying them",
+      "description": "If it's going to end, make sure you're standing.",
+      "resultText": "You stop holding anything back. Every resource, every ally, every piece of leverage—you deploy it all. The goal isn't victory on points; it's complete annihilation of your enemy's position, reputation, power. It's all-consuming, exhausting, possibly pyrrhic. You might win, but what will be left of you when you do? The person who emerges from this kind of total war isn't the person who entered it. But you're past caring about that.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 25
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 30
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["total_war", "destruction"]
+    },
+    {
+      "id": "mutual_destruction",
+      "text": "Expose everything, even if it destroys you too",
+      "description": "If you're going down, they're coming with you.",
+      "resultText": "You prepare to reveal everything—all the secrets, all the dirt, everything that would destroy them and also destroy you. It's mutually assured destruction, and you're ready to pull the trigger. You contact them with this ultimatum: we both walk away, or we both burn. It's the nuclear option, and you're hoping the threat alone forces de-escalation. But you're also ready to follow through if they don't blink. You've become what the conflict made you.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 75
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -30
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -40
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 25
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["mutual_destruction", "ultimatum"]
+    },
+    {
+      "id": "accept_defeat",
+      "text": "Surrender completely",
+      "description": "Some wars can't be won. Only survived.",
+      "resultText": "You recognize that you can't win this, and continuing will only make the destruction worse. You surrender—not strategically, not conditionally, but completely. You give them what they want. You withdraw from the field. It's humiliating and it costs you everything you fought for. But the war is over. You're still alive, still intact enough to rebuild someday. You've lost this battle, but maybe—maybe—you've saved yourself. That has to count for something.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 75
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -40
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -25
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["surrender", "survival"]
+    }
+  ],
+  "priority": 15,
+  "category": "conflict",
+  "tags": ["enemies_made", "point_of_no_return", "chain", "culmination"]
+}

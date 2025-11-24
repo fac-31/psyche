@@ -1,0 +1,134 @@
+{
+  // Low enemies_made: The character has few antagonists
+  "id": "few_enemies",
+  "title": "Living Without Antagonists",
+  "description": "You've managed to move through the world without making significant enemies.",
+  "content": "You don't have people who actively work against you, who resent your existence, who would celebrate your failures. Maybe you're conflict-averse, or skilled at de-escalation, or just lucky. Either way, you don't carry the weight of active antagonism. The absence of enemies feels like peace, though sometimes you wonder if it means you've never stood for anything strongly enough to inspire opposition. Can you live a significant life without making any enemies?",
+  "prerequisites": [
+    {
+      "type": "QualityRequirement",
+      "properties": {
+        "qualityId": "enemies_made",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "maintain_peace",
+      "text": "Keep avoiding conflict",
+      "description": "Why invite trouble?",
+      "resultText": "You continue your policy of accommodation and avoidance. When conflicts arise, you find ways around them. When positions harden, you find middle ground. When someone seems likely to become an enemy, you back down or redirect. It keeps your life peaceful, but you're aware of a nagging question: are you at peace, or are you just avoiding taking stands? For now, you choose peace and try not to examine that question too closely.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["peace", "avoidance"]
+    },
+    {
+      "id": "take_stands",
+      "text": "Start standing for things worth fighting for",
+      "description": "Some conflicts are necessary.",
+      "resultText": "You decide that the absence of enemies might mean the absence of convictions. You start taking actual positions on things that matter, even when it's uncomfortable. You stop always seeking compromise when principles are at stake. You discover that standing for something inevitably means standing against something, and that creates friction, even opposition. Your peace is disrupted, but you feel more alive. More yourself.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["conviction", "courage"]
+    },
+    {
+      "id": "appreciate_fortune",
+      "text": "Recognize this as valuable and rare",
+      "description": "Not having enemies is actually an achievement.",
+      "resultText": "You reframe your lack of enemies not as cowardice but as skill. Building a life without accumulating antagonists requires diplomacy, empathy, strategic thinking. You've managed to navigate conflicts without making them personal, to disagree without making enemies. That's not weakness—it's a particular kind of strength. You appreciate the rarity of your position and work to maintain it thoughtfully rather than accidentally.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["wisdom", "gratitude"]
+    }
+  ],
+  "priority": 10,
+  "category": "conflict",
+  "tags": ["enemies_made", "peace", "character_development"]
+}

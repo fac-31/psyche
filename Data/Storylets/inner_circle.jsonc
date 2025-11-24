@@ -1,0 +1,155 @@
+{
+  // B4: Fourth stage of the social power chain
+  "id": "B4",
+  "title": "The Inner Circle",
+  "description": "You've reached the rooms where real power operates—where decisions are made before they're announced.",
+  "content": "You're no longer on the periphery or even in the middle. You're at the center. You're in conversations before they become public. You see decisions being made that won't be announced for months. You understand how things really work—not the official processes, but the informal networks where actual power flows. This access is intoxicating, but it's also alienating. You can't talk about what you know. The gap between public narrative and private reality grows harder to navigate.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "B3",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "B4"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "social_capital",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "guard_access",
+      "text": "Protect the exclusivity of this circle",
+      "description": "Power depends on scarcity.",
+      "resultText": "You start to understand why inner circles stay inner circles—their power depends on exclusivity. You become more careful about who you bring in, more protective of the access you have. You're not just a member of the elite now; you're becoming a guardian of it. The position is secure and powerful, but you can feel yourself changing. The ideals you once had about democratizing power feel naive from up here. Maybe the world just works this way.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 4
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["elitism", "corruption"]
+    },
+    {
+      "id": "stay_grounded",
+      "text": "Remember where you came from",
+      "description": "Don't let this access change who you are.",
+      "resultText": "You work hard to maintain perspective. You stay connected to people outside the inner circle. You question the narratives and justifications you hear in elite spaces. You use your access to push back on decisions that serve the powerful at the expense of everyone else. It's lonely—you don't quite belong at the top or the bottom anymore—but you're trying to be a bridge rather than a wall. Your values are intact, even if maintaining them is exhausting.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 65
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 20
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["integrity", "strain"]
+    },
+    {
+      "id": "expose_workings",
+      "text": "Consider revealing how this system really works",
+      "description": "Transparency might be worth more than access.",
+      "resultText": "Your position gives you unique visibility into how power actually operates, and what you see troubles you. The gap between public narrative and private reality is a lie that serves the powerful. You start considering—just considering—whether you should reveal what you know. It would cost you everything you've built, alienate everyone in your network, possibly destroy your reputation. But it might also matter. The question keeps you up at night.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 70
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["whistleblowing", "courage"]
+    }
+  ],
+  "priority": 15,
+  "category": "social",
+  "tags": ["social_capital", "power", "chain", "elite"]
+}
