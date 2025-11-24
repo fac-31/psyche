@@ -36,9 +36,9 @@
 - [ ] Establish code organization patterns
 
 ### 2.2. Basic User Experience
-- [ ] Define & implement approach to displaying content to user
-- [ ] Define & implement approach to taking input from the user
-- [ ] Implement a basic playable game loop (where the user can start the app and begin interacting with the mechanics)
+- [x] Define & implement approach to displaying content to user
+- [x] Define & implement approach to taking input from the user
+- [x] Implement a basic playable game loop (where the user can start the app and begin interacting with the mechanics)
 
 ### 2.3. Integration
 - [ ] Connect character stats to battle calculations
@@ -76,6 +76,7 @@
 ### 4a. Completed Milestones
 - **2025-11-17**: Project initialized with .NET 9.0
 - **2025-11-17**: Roadmap documentation created for Character and Battle systems
+- **2025-11-24**: Milestone 2.2 (Basic User Experience) completed - Console UI, input system, and playable game loop implemented
 
 ### 4b. Completed Tasks
 #### 4b1. Record of Past Deadlines
