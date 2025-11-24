@@ -21,6 +21,16 @@ public static class ConsoleDisplay
         Console.WriteLine();
     }
 
+    /// <summary>Displays a compact character attributes header.</summary>
+    /// <param name="character">The character to display.</param>
+    public static void ShowCharacterHeader(Character character)
+    {
+        Console.WriteLine("┌" + new string('─', 78) + "┐");
+        Console.WriteLine($"│ Self-Assurance: {character.Attributes.SelfAssurance,3}  |  Compassion: {character.Attributes.Compassion,3}  |  Ambition: {character.Attributes.Ambition,3}".PadRight(79) + "│");
+        Console.WriteLine($"│ Drive: {character.Attributes.Drive,3}  |  Discernment: {character.Attributes.Discernment,3}  |  Bravery: {character.Attributes.Bravery,3}".PadRight(79) + "│");
+        Console.WriteLine("└" + new string('─', 78) + "┘");
+    }
+
     /// <summary>Displays the character's current state.</summary>
     /// <param name="character">The character to display.</param>
     public static void ShowCharacterState(Character character)
@@ -33,16 +43,6 @@ public static class ConsoleDisplay
         Console.WriteLine($"│    Ambition:       {character.Attributes.Ambition,3}  |  Drive:       {character.Attributes.Drive,3}");
         Console.WriteLine($"│    Discernment:    {character.Attributes.Discernment,3}  |  Bravery:     {character.Attributes.Bravery,3}");
 
-        if (character.Qualities.Any())
-        {
-            Console.WriteLine("│");
-            Console.WriteLine("│  Qualities:");
-            foreach (var quality in character.Qualities.OrderBy(q => q.Key))
-            {
-                Console.WriteLine($"│    {FormatQualityName(quality.Key)}: {quality.Value}");
-            }
-        }
-
         Console.WriteLine("└" + new string('─', 70));
         Console.WriteLine();
     }
@@ -50,8 +50,10 @@ public static class ConsoleDisplay
     /// <summary>Displays available storylets for the user to choose from.</summary>
     /// <param name="storylets">The list of available storylets.</param>
     /// <param name="repository">Repository to look up previous storylet titles.</param>
-    public static void ShowStoryletChoices(List<Storylet> storylets, Data.IStoryletRepository repository)
+    /// <param name="character">The character, used to display attributes header.</param>
+    public static void ShowStoryletChoices(List<Storylet> storylets, Data.IStoryletRepository repository, Character character)
     {
+        ShowCharacterHeader(character);
         Console.WriteLine();
         Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════");
         Console.WriteLine("  Available Storylets");
@@ -89,8 +91,10 @@ public static class ConsoleDisplay
 
     /// <summary>Displays a storylet with its title, description, and content.</summary>
     /// <param name="storylet">The storylet to display.</param>
-    public static void ShowStorylet(Storylet storylet)
+    /// <param name="character">The character, used to display attributes header.</param>
+    public static void ShowStorylet(Storylet storylet, Character character)
     {
+        ShowCharacterHeader(character);
         Console.WriteLine();
         Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════");
         Console.WriteLine($"  {storylet.Title}");
@@ -98,6 +102,17 @@ public static class ConsoleDisplay
         Console.WriteLine();
         Console.WriteLine(WrapText(storylet.Content, 78));
         Console.WriteLine();
+
+        // Show storylet effects summary if any
+        if (storylet.Effects.Any())
+        {
+            Console.WriteLine("Effects:");
+            foreach (var effect in storylet.Effects)
+            {
+                Console.WriteLine($"  • {effect.GetDisplayText()}");
+            }
+            Console.WriteLine();
+        }
     }
 
     /// <summary>Displays available options for a storylet.</summary>
@@ -112,18 +127,39 @@ public static class ConsoleDisplay
             var option = options[i];
             Console.WriteLine($"  [{i + 1}] {option.Text}");
             Console.WriteLine($"      {option.Description}");
+
+            // Show option effects summary
+            if (option.Effects.Any())
+            {
+                Console.WriteLine($"      Effects: {string.Join(", ", option.Effects.Select(e => e.GetDisplayText()))}");
+            }
+
             Console.WriteLine();
         }
     }
 
     /// <summary>Displays the result of choosing an option.</summary>
     /// <param name="option">The chosen option.</param>
-    public static void ShowOptionResult(StoryletOption option)
+    /// <param name="character">The character, used to display attributes header.</param>
+    public static void ShowOptionResult(StoryletOption option, Character character)
     {
+        ShowCharacterHeader(character);
         Console.WriteLine();
         Console.WriteLine("─────────────────────────────────────────────────────────────────────────────");
         Console.WriteLine(WrapText(option.ResultText, 78));
         Console.WriteLine("─────────────────────────────────────────────────────────────────────────────");
+
+        // Show effects that were applied
+        if (option.Effects.Any())
+        {
+            Console.WriteLine();
+            Console.WriteLine("Effects applied:");
+            foreach (var effect in option.Effects)
+            {
+                Console.WriteLine($"  • {effect.GetDisplayText()}");
+            }
+        }
+
         Console.WriteLine();
     }
 

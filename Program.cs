@@ -110,14 +110,14 @@ class Program
             else
             {
                 // Multiple options, let user choose
-                ConsoleDisplay.ShowStoryletChoices(availableStorylets, repository);
+                ConsoleDisplay.ShowStoryletChoices(availableStorylets, repository, character);
                 int storyletChoice = ConsoleInput.GetChoice(1, availableStorylets.Count) - 1;
                 storylet = availableStorylets[storyletChoice];
                 Console.Clear();
             }
 
             // Display the chosen storylet
-            ConsoleDisplay.ShowStorylet(storylet);
+            ConsoleDisplay.ShowStorylet(storylet, character);
 
             // Apply storylet-level effects (if any)
             foreach (var effect in storylet.Effects)
@@ -146,14 +146,14 @@ class Program
 
                 var chosenOption = availableOptions[choiceIndex];
 
-                // Display the result
-                ConsoleDisplay.ShowOptionResult(chosenOption);
-
-                // Apply option effects
+                // Apply option effects first (before showing result with updated header)
                 foreach (var effect in chosenOption.Effects)
                 {
                     effect.Apply(character);
                 }
+
+                // Display the result with updated character state
+                ConsoleDisplay.ShowOptionResult(chosenOption, character);
             }
             else
             {

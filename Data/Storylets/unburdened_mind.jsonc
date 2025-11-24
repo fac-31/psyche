@@ -45,7 +45,10 @@
         }
       ],
       "priority": 10,
-      "tags": ["self_care", "boundaries"]
+      "tags": [
+        "self_care",
+        "boundaries"
+      ]
     },
     {
       "id": "take_on_more",
@@ -85,7 +88,10 @@
         }
       ],
       "priority": 10,
-      "tags": ["generosity", "service"]
+      "tags": [
+        "generosity",
+        "service"
+      ]
     },
     {
       "id": "build_resilience",
@@ -125,10 +131,17 @@
         }
       ],
       "priority": 10,
-      "tags": ["wisdom", "preparation"]
+      "tags": [
+        "wisdom",
+        "preparation"
+      ]
     }
   ],
-  "priority": 27,
+  "priority": 80,
   "category": "mental_health",
-  "tags": ["psychological_strain", "wellness", "character_development"]
+  "tags": [
+    "psychological_strain",
+    "wellness",
+    "character_development"
+  ]
 }

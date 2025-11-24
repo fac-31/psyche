@@ -45,7 +45,10 @@
         }
       ],
       "priority": 10,
-      "tags": ["resignation", "peace"]
+      "tags": [
+        "resignation",
+        "peace"
+      ]
     },
     {
       "id": "kindle_small_dream",
@@ -85,7 +88,10 @@
         }
       ],
       "priority": 10,
-      "tags": ["growth", "beginnings"]
+      "tags": [
+        "growth",
+        "beginnings"
+      ]
     },
     {
       "id": "borrow_ambition",
@@ -125,10 +131,17 @@
         }
       ],
       "priority": 10,
-      "tags": ["following", "vicarious"]
+      "tags": [
+        "following",
+        "vicarious"
+      ]
     }
   ],
-  "priority": 51,
+  "priority": 81,
   "category": "psychological",
-  "tags": ["ambition", "stagnation", "character_development"]
+  "tags": [
+    "ambition",
+    "stagnation",
+    "character_development"
+  ]
 }
