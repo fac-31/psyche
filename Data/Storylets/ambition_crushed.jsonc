@@ -1,0 +1,134 @@
+{
+  // Ambition Crushed: An event that destroys dreams and hope
+  "id": "ambition_crushed",
+  "title": "When Dreams Die",
+  "description": "A goal you've been working toward becomes impossible, and the loss reverberates through everything.",
+  "content": "The door slams shut—the opportunity evaporates, the plan collapses, the dream proves unreachable. You'd invested so much: time, energy, hope, identity. You'd let yourself believe this was your path forward, and now there is no path. The specific loss is painful, but worse is the meta-lesson you're drawing: maybe reaching for things only sets you up for disappointment. Maybe ambition itself is the problem.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Ambition",
+        "delta": -12
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "give_up_hoping",
+      "text": "Stop wanting things",
+      "description": "If you don't reach, you can't fall.",
+      "resultText": "You make a conscious decision to stop having ambitions. Every goal you've ever set has led to disappointment, so why continue the cycle? You retreat into the bare minimum, doing only what's necessary to survive. The resignation brings a dark kind of relief—if you expect nothing, you can't be disappointed. But the world becomes flatter, grayer. You're safe from failure because you've stopped trying.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["despair", "resignation"]
+    },
+    {
+      "id": "analyze_failure",
+      "text": "Figure out what went wrong",
+      "description": "Failure is information, not destiny.",
+      "resultText": "Through the pain, you force yourself to examine the wreckage objectively. What was in your control? What wasn't? What can you learn? The analysis doesn't erase the hurt, but it transforms the failure from a condemnation into data. You identify genuine mistakes you made, but also factors beyond your control. Your ambition is diminished but not destroyed. You're learning how to fail without being broken by it.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["learning", "resilience"]
+    },
+    {
+      "id": "find_new_dream",
+      "text": "Grieve this loss, then find another path",
+      "description": "One closed door doesn't mean all doors are closed.",
+      "resultText": "You let yourself fully feel the disappointment without rushing to fix it or learn from it. You grieve what you've lost. But you also refuse to let this single failure define what's possible. Yes, this specific ambition is dead. But ambition itself—the capacity to want, to hope, to reach—that's still alive. It takes time, but eventually a new goal emerges. Different from the old one, maybe more modest, but still yours.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -3
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["resilience", "hope"]
+    }
+  ],
+  "priority": 10,
+  "category": "psychological",
+  "tags": ["ambition", "failure", "character_development"]
+}

@@ -1,0 +1,134 @@
+{
+  // Low Compassion: The character struggles to connect emotionally with others
+  "id": "low_compassion",
+  "title": "The Distance Between",
+  "description": "Other people's emotions feel like a foreign language you never learned to speak.",
+  "content": "You watch others connect effortlessly—crying together, laughing together, supporting each other through crises that leave you cold. You know intellectually that you're supposed to care, but the feeling doesn't come. Their tears seem performative. Their joys seem excessive. You go through the motions of empathy because that's what's expected, but inside you feel nothing but a vague impatience.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Compassion",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "embrace_detachment",
+      "text": "Emotions are weakness anyway",
+      "description": "Better to be rational than sentimental.",
+      "resultText": "You stop pretending to care. When someone shares their problems, you offer logical solutions instead of sympathy. When they seem hurt by your coldness, that's their problem, not yours. You tell yourself you're just being honest, refusing to coddle people. But the isolation deepens. People stop confiding in you, stop inviting you, stop trying.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 2
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["isolation", "coldness"]
+    },
+    {
+      "id": "practice_empathy",
+      "text": "Try to understand what others feel",
+      "description": "Even if you don't feel it naturally, you can learn.",
+      "resultText": "You start deliberately practicing empathy like it's a skill to master. When someone is upset, you ask questions instead of dismissing them. You try to imagine their perspective, even when it feels alien. It's mechanical at first, but slowly something shifts. You start catching glimpses of genuine connection. It's uncomfortable, vulnerable, but also… not entirely unwelcome.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "learning"]
+    },
+    {
+      "id": "selective_connection",
+      "text": "Find the few people you actually care about",
+      "description": "Maybe you can't care about everyone, but you can care about someone.",
+      "resultText": "You stop trying to force yourself to care about everyone and instead focus on the one or two people who somehow matter to you. With them, empathy comes more naturally. You realize you're not completely emotionally bankrupt—you're just selective. It's not the broad compassion society celebrates, but it's real, and it's yours.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 35
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 4
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["connection", "authenticity"]
+    }
+  ],
+  "priority": 10,
+  "category": "psychological",
+  "tags": ["compassion", "empathy", "character_development"]
+}

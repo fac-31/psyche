@@ -1,0 +1,135 @@
+{
+  // Moderate Bravery: The character has balanced courage
+  "id": "measured_courage",
+  "title": "The Calculation of Risk",
+  "description": "You can be brave when needed, but you don't seek danger for its own sake.",
+  "content": "You're neither recklessly bold nor pathologically cautious. When situations demand courage, you can find it. When retreat is wisdom, you're not too proud to take it. You help others, but not to your own destruction. You take risks, but calculated ones. It's an ongoing negotiation between self-preservation and self-sacrifice, between caution and boldness. Neither extreme feels quite right, so you walk the tightrope between them.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Bravery",
+        "minValue": 30,
+        "maxValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "maintain_balance",
+      "text": "This measured approach serves you well",
+      "description": "Be brave when it matters, careful when it doesn't.",
+      "resultText": "You consciously maintain your current calibration—willing to take risks but not courting danger, willing to help but not at any cost. People learn they can count on you in genuine crises, but also that you won't throw yourself away for no reason. It's a sustainable way of being brave, one that lets you show courage repeatedly rather than burning out in one dramatic gesture.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["balance", "wisdom"]
+    },
+    {
+      "id": "cultivate_boldness",
+      "text": "Push yourself to take bigger risks",
+      "description": "Maybe you're being too careful.",
+      "resultText": "You start deliberately choosing the bolder option, the riskier path. When fear appears, you lean into it rather than backing away. The expansion of your courage is exhilarating—you're discovering capacities you didn't know you had. But you're also accumulating bruises, both literal and metaphorical. The question becomes: are you growing or just being careless? The line is harder to see than you expected.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Ambition",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "risk"]
+    },
+    {
+      "id": "strengthen_caution",
+      "text": "Protect yourself more carefully",
+      "description": "Courage shouldn't mean martyrdom.",
+      "resultText": "You start being more selective about which battles to fight, which risks to take. You say no to requests that would drain you, turn away from dangers that aren't your responsibility. Some call it selfishness; you call it self-preservation. The guilt is real, but so is the relief. You're learning that you can't help anyone if you destroy yourself. Sometimes courage looks like knowing when to retreat.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["self_care", "boundaries"]
+    }
+  ],
+  "priority": 10,
+  "category": "psychological",
+  "tags": ["bravery", "balance", "character_development"]
+}

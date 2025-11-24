@@ -1,0 +1,135 @@
+{
+  // Moderate Self-Assurance: The character has balanced confidence
+  "id": "moderate_self_assurance",
+  "title": "The Middle Ground",
+  "description": "Your confidence is neither overwhelming nor absent—a precarious balance.",
+  "content": "You exist in the uncertain space between doubt and certainty. Some days you trust your judgment; others, you question everything. You're neither the loudest voice in the room nor the quietest. People sometimes listen to you, sometimes overlook you. It's an uncomfortable place to be, this middle ground, but perhaps that discomfort is itself a kind of wisdom.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "SelfAssurance",
+        "minValue": 30,
+        "maxValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "maintain_balance",
+      "text": "Accept the uncertainty",
+      "description": "Perhaps balance is its own virtue.",
+      "resultText": "You stop trying to force yourself into extremes and accept this middle place. Some situations call for boldness, others for humility. You learn to read the room, adjust your approach. It's not flashy, but it's effective. People begin to see you as reliable, thoughtful—someone who doesn't need to dominate but also doesn't disappear.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 4
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["balance", "wisdom"]
+    },
+    {
+      "id": "push_forward",
+      "text": "Cultivate stronger confidence",
+      "description": "Time to stop hedging and start leading.",
+      "resultText": "You decide the middle ground is for people who lack conviction. You start speaking up more forcefully, taking stronger stances. Some appreciate your newfound decisiveness; others find you suddenly difficult. But you can feel yourself becoming more solid, more present. The uncertainty recedes, replaced by growing self-belief.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Ambition",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 1
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "confidence"]
+    },
+    {
+      "id": "embrace_humility",
+      "text": "Lean into questioning yourself",
+      "description": "Confidence might be overrated.",
+      "resultText": "You start actively questioning your assumptions, seeking out perspectives that challenge your own. It's uncomfortable—every assertion becomes tentative, every opinion comes with caveats. You lose some of your presence in conversations, but you gain something else: the ability to truly listen, to change your mind, to admit when you're wrong.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 7
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["humility", "openness"]
+    }
+  ],
+  "priority": 10,
+  "category": "psychological",
+  "tags": ["self_assurance", "balance", "character_development"]
+}

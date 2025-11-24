@@ -1,0 +1,134 @@
+{
+  // High Ambition: The character's dreams have become detached from reality
+  "id": "soaring_ambition",
+  "title": "Castles in the Sky",
+  "description": "Your ambitions have grown so grand they've lost touch with the constraints of reality.",
+  "content": "You spend more time in your imagined future than your actual present. The plans are elaborate, brilliant, world-changing—at least in your head. You sketch out empires, envision triumphs, rehearse acceptance speeches for awards you haven't earned. Meanwhile, the actual work required feels beneath you, too mundane for someone destined for greatness. Why toil on small steps when you're meant for giant leaps?",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Ambition",
+        "minValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "chase_fantasy",
+      "text": "These dreams are who you are",
+      "description": "Settling for less would be betraying your potential.",
+      "resultText": "You double down on the grand vision, dismissing those who call you unrealistic as small-minded. You talk about your plans endlessly, crafting narratives of inevitable success. But the gap between vision and reality grows. Bills go unpaid while you scheme. Relationships strain while you monologue about your destiny. The fantasy is intoxicating, but it's also isolating.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["delusion", "fantasy"]
+    },
+    {
+      "id": "ground_ambition",
+      "text": "Break the dream into achievable steps",
+      "description": "Grand visions need practical plans.",
+      "resultText": "You force yourself to examine what's actually required to achieve even a fraction of your vision. It's humbling, even painful, to confront the gap between where you are and where you want to be. But as you create realistic milestones, something shifts. The dream becomes less intoxicating but more possible. You start taking actual steps instead of just imagining the destination.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "realism"]
+    },
+    {
+      "id": "harness_vision",
+      "text": "Use the big picture to inspire action",
+      "description": "The dream can fuel progress without consuming you.",
+      "resultText": "You learn to hold both the grand vision and the humble reality simultaneously. The ambitious dream becomes a north star rather than an escape. You let it inspire you during the tedious work, but you don't let it blind you to what's actually in front of you. People start taking you more seriously—you're still ambitious, but now you're also credible.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["balance", "effectiveness"]
+    }
+  ],
+  "priority": 10,
+  "category": "psychological",
+  "tags": ["ambition", "fantasy", "character_development"]
+}

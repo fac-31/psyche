@@ -1,0 +1,134 @@
+{
+  // Ambition Ignited: An event that sparks new dreams and desires
+  "id": "ambition_ignited",
+  "title": "The Spark of Possibility",
+  "description": "Something shows you a glimpse of what could be, and suddenly you want more.",
+  "content": "It happens in a moment—seeing someone achieve something you thought impossible, or realizing a path you never knew existed, or suddenly understanding that you're capable of more than you believed. The comfortable resignation you'd been living in suddenly feels like a cage. Your mind begins spinning with possibilities, plans, dreams you'd forgotten or never dared to have. The future transforms from a continuation of the present into a landscape of potential.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Ambition",
+        "delta": 12
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "chase_vision",
+      "text": "Surrender to the excitement",
+      "description": "Finally, you have something to reach for.",
+      "resultText": "You let the ambition consume you in the best way. Every moment becomes fuel for the dream. You start planning, researching, making connections, taking steps. The energy is electric. Sleep feels optional. The mundane obligations of daily life become obstacles to resent. You're alive with purpose in a way you've never been before. It's intoxicating, and you hope this feeling never ends.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["passion", "intensity"]
+    },
+    {
+      "id": "channel_methodically",
+      "text": "Transform inspiration into a concrete plan",
+      "description": "Excitement is great, but execution is everything.",
+      "resultText": "You feel the surge of ambition but consciously channel it into structured planning. What exactly do you want? What steps are required? What resources do you need? The methodical approach tempers the excitement but makes it actionable. You're not just dreaming—you're building. The ambition becomes a project rather than a fantasy, and that makes it real.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["planning", "execution"]
+    },
+    {
+      "id": "share_vision",
+      "text": "Bring others into your dream",
+      "description": "Ambition grows when shared.",
+      "resultText": "The new ambition feels too big to carry alone. You start talking about it, refining it through conversation, recruiting others to the vision. Their enthusiasm feeds yours. Some offer resources, others offer expertise, still others just offer belief. Your personal ambition becomes something larger—a shared project, a collective dream. It's more complicated this way, but also more powerful.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 9
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["collaboration", "community"]
+    }
+  ],
+  "priority": 10,
+  "category": "psychological",
+  "tags": ["ambition", "inspiration", "character_development"]
+}

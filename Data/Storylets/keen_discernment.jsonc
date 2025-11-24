@@ -1,0 +1,134 @@
+{
+  // High Discernment: The character sees flaws and problems everywhere
+  "id": "keen_discernment",
+  "title": "The Curse of Seeing Too Clearly",
+  "description": "Your ability to spot flaws, inconsistencies, and problems has become overwhelming.",
+  "content": "You see through everything—the lies people tell themselves, the logical fallacies in their arguments, the hidden agendas beneath polite words. Nothing escapes your critical eye. You catch the subtle contradictions, the convenient omissions, the ways people deceive themselves and others. It's a valuable skill, but it's also exhausting. You can't turn it off. Even genuine moments feel suspect. Trust becomes nearly impossible when you can always find reasons to doubt.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Discernment",
+        "minValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "embrace_skepticism",
+      "text": "Better to be cynical than fooled",
+      "description": "Trust is for people who can't see clearly.",
+      "resultText": "You lean into the skepticism fully, treating everything and everyone as potentially deceptive until proven otherwise. Your critical analysis becomes sharper, more ruthless. You're rarely wrong in your assessments, but you're also increasingly alone. People find you difficult, negative, impossible to please. You tell yourself you'd rather be right than liked, but the isolation stings more than you admit.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 2
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["cynicism", "isolation"]
+    },
+    {
+      "id": "practice_grace",
+      "text": "See the flaws but choose kindness anyway",
+      "description": "Understanding doesn't require condemnation.",
+      "resultText": "You still see all the inconsistencies, the self-deceptions, the flaws—but you start responding with compassion instead of critique. Yes, people are imperfect, contradictory, sometimes dishonest. But maybe that's just being human. You learn to notice without necessarily calling it out, to understand without needing to fix. Your discernment becomes gentler, more humane. You see clearly, but you also see generously.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["balance", "kindness"]
+    },
+    {
+      "id": "choose_ignorance",
+      "text": "Sometimes not looking too closely is wisdom",
+      "description": "Not every truth needs excavating.",
+      "resultText": "You consciously dial back the critical analysis, allowing yourself to take some things at face value. Yes, you could dig deeper, find the flaws, uncover the problems—but do you need to? You practice strategic ignorance: noticing what matters, letting the rest go. It feels like diminishing your abilities at first, but it also feels like reclaiming your peace. Perfect sight doesn't require staring at everything.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["wisdom", "peace"]
+    }
+  ],
+  "priority": 10,
+  "category": "psychological",
+  "tags": ["discernment", "criticism", "character_development"]
+}
