@@ -52,6 +52,26 @@ public class Storylet
     /// <summary>Determines if this storylet has choices or uses legacy auto-execution.</summary>
     public bool HasChoices => Options.Any();
 
+    /// <summary>Gets the ID of the previous storylet in the chain (if any).</summary>
+    /// <returns>The storylet ID that must have been played before this one, or null if none.</returns>
+    public string? GetPreviousStoryletId()
+    {
+        var requirement = Prerequisites
+            .OfType<StoryletPlayedRequirement>()
+            .FirstOrDefault(r => r.MustHavePlayed);
+        return requirement?.StoryletId;
+    }
+
+    /// <summary>Gets a list of non-storylet prerequisites for display.</summary>
+    /// <returns>List of requirement display texts.</returns>
+    public List<string> GetDisplayablePrerequisites()
+    {
+        return Prerequisites
+            .Where(p => p is not StoryletPlayedRequirement)
+            .Select(p => p.GetDisplayText())
+            .ToList();
+    }
+
     /// <summary>Gets available options for the given character (filters by prerequisites).</summary>
     /// <param name="character">The character to check prerequisites against.</param>
     /// <returns>List of available options, ordered by priority (descending).</returns>

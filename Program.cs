@@ -40,11 +40,25 @@ class Program
                 break;
             }
 
-            // Select the highest priority storylet
-            var storylet = availableStorylets.First();
-
-            // Display the storylet
+            // Let user choose from available storylets
             Console.Clear();
+            Storylet storylet;
+
+            if (availableStorylets.Count == 1)
+            {
+                // Only one option, select it automatically
+                storylet = availableStorylets.First();
+            }
+            else
+            {
+                // Multiple options, let user choose
+                ConsoleDisplay.ShowStoryletChoices(availableStorylets, repository);
+                int storyletChoice = ConsoleInput.GetChoice(1, availableStorylets.Count) - 1;
+                storylet = availableStorylets[storyletChoice];
+                Console.Clear();
+            }
+
+            // Display the chosen storylet
             ConsoleDisplay.ShowStorylet(storylet);
 
             // Apply storylet-level effects (if any)
@@ -132,13 +146,17 @@ class Program
         return new JsonStoryletRepository(dataDirectory);
     }
 
-    /// <summary>Gets all storylets that are available to the character.</summary>
+    /// <summary>Gets up to 5 available storylets, prioritized by priority with randomization for ties.</summary>
     private static List<Storylet> GetAvailableStorylets(IStoryletRepository repository, Character character)
     {
+        var random = new Random();
+
         return repository.GetAll()
             .Where(s => !character.HasPlayedStorylet(s.Id)) // Haven't played yet
             .Where(s => s.Prerequisites.All(prereq => prereq.IsMet(character))) // All prerequisites met
             .OrderByDescending(s => s.Priority) // Highest priority first
+            .ThenBy(_ => random.Next()) // Randomize ties
+            .Take(5) // Take up to 5
             .ToList();
     }
 

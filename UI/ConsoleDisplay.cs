@@ -47,6 +47,46 @@ public static class ConsoleDisplay
         Console.WriteLine();
     }
 
+    /// <summary>Displays available storylets for the user to choose from.</summary>
+    /// <param name="storylets">The list of available storylets.</param>
+    /// <param name="repository">Repository to look up previous storylet titles.</param>
+    public static void ShowStoryletChoices(List<Storylet> storylets, Data.IStoryletRepository repository)
+    {
+        Console.WriteLine();
+        Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════");
+        Console.WriteLine("  Available Storylets");
+        Console.WriteLine("═══════════════════════════════════════════════════════════════════════════════");
+        Console.WriteLine();
+        Console.WriteLine("Choose a storylet to explore:");
+        Console.WriteLine();
+
+        for (int i = 0; i < storylets.Count; i++)
+        {
+            var storylet = storylets[i];
+            Console.WriteLine($"{i + 1}. {storylet.Title}");
+
+            // Show previous storylet in chain if any
+            var previousId = storylet.GetPreviousStoryletId();
+            if (!string.IsNullOrEmpty(previousId))
+            {
+                var previousStorylet = repository.GetById(previousId);
+                if (previousStorylet != null)
+                {
+                    Console.WriteLine($"   (Continued from \"{previousStorylet.Title}\")");
+                }
+            }
+
+            // Show unlock conditions
+            var prerequisites = storylet.GetDisplayablePrerequisites();
+            if (prerequisites.Any())
+            {
+                Console.WriteLine($"   Unlock conditions: {string.Join(", ", prerequisites)}");
+            }
+
+            Console.WriteLine();
+        }
+    }
+
     /// <summary>Displays a storylet with its title, description, and content.</summary>
     /// <param name="storylet">The storylet to display.</param>
     public static void ShowStorylet(Storylet storylet)
