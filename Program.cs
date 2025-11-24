@@ -1,9 +1,31 @@
 using Psyche.Data;
 using Psyche.Models;
 using Psyche.Models.Mocks;
+using Psyche.Systems.CharacterCreation;
 using Psyche.UI;
 
 namespace Psyche;
+
+Console.WriteLine("=== Character Creation Test ===");
+
+Console.WriteLine($"Created Character: {character.Name}");
+Console.WriteLine($"Archetype: {character.Archetype.Name}");
+Console.WriteLine("Attributes:");
+Console.WriteLine($"  Self-Assurance: {character.SelfAssurance}");
+Console.WriteLine($"  Compassion:     {character.Compassion}");
+Console.WriteLine($"  Ambition:       {character.Ambition}");
+Console.WriteLine($"  Drive:          {character.Drive}");
+Console.WriteLine($"  Discernment:    {character.Discernment}");
+Console.WriteLine($"  Bravery:        {character.Bravery}");
+
+Console.WriteLine("=== Test Complete ===");
+
+var builder = new CharacterBuilder();
+var character = builder
+    .WithName("Test Subject")
+    .WithRandomDrive()
+    .Build();
+
 
 /// <summary>
 /// Main entry point for the Psyche application.
