@@ -1,0 +1,134 @@
+{
+  // Drive Surge: An event that energizes and motivates the character
+  "id": "drive_surge",
+  "title": "The Ignition of Energy",
+  "description": "Something awakens a fierce motivation in you—suddenly, action feels not just possible but necessary.",
+  "content": "You feel it like a physical sensation—a surge of energy, a clarity of purpose, a sudden intolerance for inaction. The tasks that felt overwhelming yesterday now seem straightforward. The excuses that justified procrastination now ring hollow. Your body wants to move, your mind wants to work. You're not sure if this is inspiration or desperation, but either way, you're finally ready to act.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Drive",
+        "delta": 12
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "ride_momentum",
+      "text": "Strike while the iron is hot",
+      "description": "These surges don't last—use it while you have it.",
+      "resultText": "You channel every ounce of energy into action. You work through meals, through breaks, through fatigue. Everything else becomes secondary to capitalizing on this motivation. The productivity is intense, almost manic. You accomplish in hours what usually takes days. But there's a voice in the back of your mind asking: what happens when this energy runs out? For now, you ignore it and keep moving.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["intensity", "productivity"]
+    },
+    {
+      "id": "channel_sustainably",
+      "text": "Use the energy but pace yourself",
+      "description": "Transform the surge into lasting momentum.",
+      "resultText": "You feel the burst of motivation but consciously moderate it, channeling the energy into sustainable habits rather than an exhausting sprint. You set up systems, create routines, tackle important tasks—but you also sleep, eat, take breaks. You're trying to extend the surge, to transform temporary inspiration into permanent infrastructure. It's less dramatic than going all-out, but more strategic.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["sustainability", "wisdom"]
+    },
+    {
+      "id": "inspire_others",
+      "text": "Share the energy with others",
+      "description": "Momentum is contagious.",
+      "resultText": "Your surge of drive spills over into your interactions. You encourage others, initiate group projects, create accountability structures. Your energy becomes infectious. People start working alongside you, feeding off your motivation. What could have been a solitary burst becomes a collective movement. You're not just accomplishing your own goals—you're catalyzing others' progress too.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 7
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["leadership", "collaboration"]
+    }
+  ],
+  "priority": 50,
+  "category": "psychological",
+  "tags": ["drive", "motivation", "character_development"]
+}

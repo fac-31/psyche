@@ -1,0 +1,135 @@
+{
+  // Moderate Drive: The character has sustainable energy and motivation
+  "id": "steady_momentum",
+  "title": "The Rhythm of Progress",
+  "description": "You move forward at a pace you can sustain—neither frantic nor stalled.",
+  "content": "You have your routines, your systems, your ways of getting things done. Some days you accomplish more than others, but there's a general forward motion to your life. You're not obsessed with productivity, but you're not paralyzed either. When you say you'll do something, you usually do it. When you need to rest, you allow it. It's not exciting or dramatic, but it's working.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Drive",
+        "minValue": 30,
+        "maxValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "maintain_rhythm",
+      "text": "Keep the steady pace",
+      "description": "Consistency compounds over time.",
+      "resultText": "You consciously maintain your current rhythm, resisting both the temptation to do more and the seduction of doing less. You show up, do the work, take breaks, repeat. It's not flashy, but over time the results become undeniable. While others burn out or give up, you're still going. The tortoise, you realize, had the right idea all along.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["consistency", "wisdom"]
+    },
+    {
+      "id": "intensify_effort",
+      "text": "Push yourself harder",
+      "description": "You could be accomplishing more.",
+      "resultText": "You start saying yes to more things, waking up earlier, filling the gaps in your schedule. The increased pace is exhilarating at first—look how much you can do! But the sustainability of your previous rhythm is disrupted. You're getting more done, but at what cost? Sleep suffers. Relationships get squeezed. The intensity generates results, but also stress. You're not sure if this is growth or just grinding.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Ambition",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["intensity", "ambition"]
+    },
+    {
+      "id": "ease_off",
+      "text": "Allow more space for rest",
+      "description": "Efficiency isn't everything.",
+      "resultText": "You start questioning whether all this productivity is necessary. What if you did less but enjoyed it more? You begin saying no to things, protecting your time, allowing gaps in your schedule for nothing in particular. The guilt is real—shouldn't you be doing more? But so is the relief. You're accomplishing slightly less but feeling significantly better. Maybe that's not a bad trade.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["self_care", "balance"]
+    }
+  ],
+  "priority": 92,
+  "category": "psychological",
+  "tags": ["drive", "balance", "character_development"]
+}

@@ -1,0 +1,148 @@
+{
+  // C4: Fourth stage of the enemy/conflict chain
+  "id": "C4",
+  "title": "Dangerous Territory",
+  "description": "The conflict has become dangerous—not just professionally or socially, but personally.",
+  "content": "Things have gotten dark. The conflict isn't just about reputation or status anymore—it's personal, visceral, potentially physically threatening. Threats are implied if not stated. Safety feels precarious. You're looking over your shoulder. The enmity has crossed lines that shouldn't be crossed, entered territory that feels genuinely dangerous. This isn't just a vendetta anymore; it's something that could actually destroy you. Or them. Or everyone involved.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "C3",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "C4"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "enemies_made",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "match_intensity",
+      "text": "Show them you can be just as dangerous",
+      "description": "If they want to go dark, you'll meet them there.",
+      "resultText": "You cross your own lines, do things you never thought you'd do. The moral high ground is cold comfort when you're losing. You become what you need to become to survive this. It's effective—they learn you're not to be underestimated. But you also barely recognize yourself. You're winning, maybe, but at the cost of becoming someone you're not sure you can live with. The conflict is changing you in ways that might be permanent.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 25
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["corruption", "darkness"]
+    },
+    {
+      "id": "seek_intervention",
+      "text": "Get authorities/mediators involved",
+      "description": "This needs official intervention.",
+      "resultText": "You recognize this has gone beyond what can be handled privately. You bring in authorities, mediators, legal structures—whatever formal systems exist to contain conflicts that have gotten out of hand. It's an admission that you've lost control, but also an acknowledgment that some things shouldn't be handled informally. The intervention provides structure, oversight, limits. The conflict becomes constrained, if not resolved. It's not satisfying, but it's safer.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 70
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["intervention", "containment"]
+    },
+    {
+      "id": "consider_withdrawal",
+      "text": "Seriously consider removing yourself from the situation",
+      "description": "Some fights aren't worth your life.",
+      "resultText": "You start planning exit strategies. Maybe moving. Maybe changing careers. Maybe just completely withdrawing from the spaces where this conflict plays out. It feels like letting them win, like cowardice. But it's also survival. You're assessing whether your pride, your position, your version of justice is worth what this conflict is costing—and might still cost. Not all fights can be won. Some just need to be escaped.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -25
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -30
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["withdrawal", "escape"]
+    }
+  ],
+  "priority": 38,
+  "category": "conflict",
+  "tags": ["enemies_made", "danger", "chain", "crisis"]
+}

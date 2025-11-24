@@ -1,0 +1,141 @@
+{
+  // B1: High social_capital - the beginning of a power chain
+  "id": "B1",
+  "title": "The Web of Influence",
+  "description": "You've built substantial social capital. Doors open. Calls get returned. You matter.",
+  "content": "You know people. More importantly, people know you. When you need something, you have someone to call. When you speak, others listen. You're invited to the conversations that matter, consulted on decisions that count. You've built a network of reciprocal relationships, accumulated favors owed and goodwill earned. The social capital feels like power, and you're learning how to wield it. The question is: what will you do with this influence?",
+  "prerequisites": [
+    {
+      "type": "QualityRequirement",
+      "properties": {
+        "qualityId": "social_capital",
+        "minValue": 70
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "B1"
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "maintain_network",
+      "text": "Keep nurturing these relationships carefully",
+      "description": "Social capital requires maintenance.",
+      "resultText": "You recognize that influence isn't static—it's maintained through ongoing reciprocity and care. You continue showing up, returning favors, making introductions, being useful. The network thrives because you tend it. People trust you because you've proven trustworthy. Your social capital is substantial, sustainable, and based on genuine relationships rather than manipulation. It's work, but it's worthwhile work.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["maintenance", "care"]
+    },
+    {
+      "id": "leverage_influence",
+      "text": "Start using your influence more aggressively",
+      "description": "You've built power. Time to use it.",
+      "resultText": "You begin actively leveraging your network for personal gain. Calling in favors. Making strategic introductions. Using your influence to open doors that would stay closed for others. The power is exhilarating. You're learning that social capital isn't just about being connected—it's about converting those connections into outcomes. Some people start seeming wary of you, but that might just be respect. Or fear. Either way, it works.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Ambition",
+            "minValue": 55
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 2
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["power", "leverage"]
+    },
+    {
+      "id": "lift_others",
+      "text": "Use your influence to help those without it",
+      "description": "Pay the privilege forward.",
+      "resultText": "You remember what it was like to have no social capital, no connections, no voice. Now that you have influence, you use it to amplify others—making introductions for people starting out, vouching for those without credibility, opening doors for the excluded. Your network strengthens not through hoarding but through generous expansion. You're learning that real power isn't about what you can get; it's about what you can give.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["generosity", "mentorship"]
+    }
+  ],
+  "priority": 99,
+  "category": "social",
+  "tags": ["social_capital", "influence", "chain_start"]
+}

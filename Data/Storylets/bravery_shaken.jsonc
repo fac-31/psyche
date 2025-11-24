@@ -1,0 +1,134 @@
+{
+  // Bravery Shaken: An event that undermines courage
+  "id": "bravery_shaken",
+  "title": "When Courage Crumbles",
+  "description": "Something shows you the real cost of courage, and now you're not sure it's worth it.",
+  "content": "You were brave. You took the risk, made the sacrifice, stood up when it mattered. And it went badly. Maybe you got hurt. Maybe someone you tried to protect suffered anyway. Maybe your boldness made things worse instead of better. The failure doesn't just sting—it undermines the entire premise of courage. What if being brave is just being stupid? What if caution was the right answer all along? The fear you used to face now seems entirely reasonable.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Bravery",
+        "delta": -12
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "retreat_into_safety",
+      "text": "Never again",
+      "description": "The cost of courage is too high.",
+      "resultText": "You make a decision: no more heroics, no more risks, no more sticking your neck out. You build walls around yourself, develop excuses for why you can't help, perfect the art of self-preservation. The guilt is real, but so is the relief. You won't be hurt like that again. You won't fail like that again. You'll be safe. Small. Invisible. But safe.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["retreat", "fear"]
+    },
+    {
+      "id": "learn_from_failure",
+      "text": "Figure out what went wrong",
+      "description": "Maybe it wasn't the courage that failed, but the execution.",
+      "resultText": "You force yourself to examine the failure analytically. Was the act of courage itself wrong, or was it the specific approach? Were there warning signs you missed? Could you have been brave and strategic? The investigation doesn't erase the pain, but it does complicate the simple narrative of 'courage = bad.' Maybe you need to be smarter about how you're brave, not less brave overall.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["learning", "growth"]
+    },
+    {
+      "id": "recommit_to_courage",
+      "text": "Courage means showing up even after failure",
+      "description": "Being brave once is easy. Staying brave after getting hurt is what matters.",
+      "resultText": "You acknowledge the failure and the pain, but you refuse to let them define what courage means. Yes, it went badly this time. That doesn't mean bravery itself is wrong. You process the hurt, tend your wounds, and then—when you're ready—you step up again. Not recklessly, but deliberately. This is what true courage looks like: not the absence of fear or the guarantee of success, but the willingness to try anyway.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -3
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["resilience", "determination"]
+    }
+  ],
+  "priority": 26,
+  "category": "psychological",
+  "tags": ["bravery", "failure", "character_development"]
+}

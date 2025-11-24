@@ -1,0 +1,169 @@
+{
+  // B6: Final stage of the social power chain
+  "id": "B6",
+  "title": "The Web of Influence",
+  "description": "You've reached the apex—or the abyss—of social power. What now?",
+  "content": "You sit at the center of a web of influence so vast you've lost track of all its strands. Your words ripple outward in ways you can't fully control or predict. People you've never met make decisions based on what they think you'd want. You've achieved everything you thought you wanted in terms of social power, and it's nothing like you imagined. The loneliness is profound. The responsibility is crushing. And you're not entirely sure if you're using the power or if it's using you. This is the culmination, the final stage. Now what?",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "B5",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "B6"
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "rule_from_shadow",
+      "text": "Accept your role as hidden architect",
+      "description": "This is what ultimate power looks like.",
+      "resultText": "You stop fighting what you've become and accept it. Yes, you're manipulating vast systems from the shadows. Yes, you have more power than is healthy for anyone to hold. But someone's going to hold it, and at least you're not overtly evil. You tell yourself you use your influence responsibly, that you're a benevolent puppet master. Whether that's true or just what all puppet masters tell themselves, you're no longer sure it matters. This is who you are now.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["acceptance", "darkness"]
+    },
+    {
+      "id": "choose_redemption",
+      "text": "Use this power to fundamentally change the system",
+      "description": "One last chance to do something meaningful.",
+      "resultText": "You've spent years accumulating power. Now, in a final gambit, you use all of it to try to change the very structures that enabled you to get here. You advocate for radical transparency. You dismantle gatekeeping. You use your influence to empower people who would disrupt your own position. It's professional suicide, social suicide, possibly actual suicide for the person you've been. But maybe that person needed to die. Maybe this is the only redemption available for someone who's wielded this much power.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 80
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -40
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 25
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 25
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 35
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["redemption", "sacrifice"]
+    },
+    {
+      "id": "walk_away",
+      "text": "Abandon it all and rebuild yourself",
+      "description": "Power was never the answer.",
+      "resultText": "You realize with sudden clarity that everything you've built is a cage. The power, the influence, the web of connections—none of it has made you happy, and most of it has made you worse. So you do something radical: you walk away. You don't use your power for one last grand gesture. You just... stop. Resign from positions. Stop returning calls. Disappear from the networks that defined you. People think you've lost your mind. Maybe you have. Or maybe you're finally finding it.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 75
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -60
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -30
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 40
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["liberation", "renunciation"]
+    }
+  ],
+  "priority": 41,
+  "category": "social",
+  "tags": ["social_capital", "power", "chain", "culmination", "transformation"]
+}

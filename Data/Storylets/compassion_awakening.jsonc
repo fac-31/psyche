@@ -1,0 +1,134 @@
+{
+  // Compassion Awakening: An event that opens the character's heart
+  "id": "compassion_awakening",
+  "title": "When the Heart Opens",
+  "description": "Something cracks through your defenses, and suddenly you feel another's pain as if it were your own.",
+  "content": "It happens without warning—a story, a moment, a glimpse into someone else's suffering that bypasses all your usual armor. For once, you don't analyze or intellectualize. You just feel. The rawness of it is overwhelming. You had no idea you were capable of caring this much. The world suddenly seems full of hidden wounds, and you can see them all.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Compassion",
+        "delta": 10
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "embrace_feeling",
+      "text": "Let yourself fully experience this",
+      "description": "Don't run from what you're feeling.",
+      "resultText": "You don't try to shut down the empathy or protect yourself from it. You let the feeling wash over you, all of it—the pain, the connection, the overwhelming sense of shared humanity. It's intense, maybe unsustainable, but it's also profound. You understand something new about what it means to be human, to be connected to others in their suffering and joy.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["empathy", "transformation"]
+    },
+    {
+      "id": "channel_into_action",
+      "text": "Transform feeling into doing",
+      "description": "Use this empathy as fuel for change.",
+      "resultText": "The surge of compassion demands an outlet. You find yourself taking action—helping, volunteering, reaching out, making changes. The feeling becomes purpose. You're not just moved by others' suffering; you're motivated to address it. The empathy gains direction, becoming something powerful and effective rather than just overwhelming.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["action", "purpose"]
+    },
+    {
+      "id": "measured_response",
+      "text": "Feel it, but maintain perspective",
+      "description": "Compassion doesn't require losing yourself.",
+      "resultText": "You allow the empathy to emerge but consciously maintain some distance. You feel for them without taking on their pain as your own. You care, but you also recognize your limits. It's a more mature compassion—engaged but not consumed, moved but not overwhelmed. You can help from this place in ways you couldn't from total emotional enmeshment.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 7
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["wisdom", "balance"]
+    }
+  ],
+  "priority": 56,
+  "category": "psychological",
+  "tags": ["compassion", "awakening", "character_development"]
+}

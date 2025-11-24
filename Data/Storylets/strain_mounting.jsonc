@@ -1,0 +1,134 @@
+{
+  // Psychological strain mounting: An event that increases stress
+  "id": "strain_mounting",
+  "title": "The Accumulation of Pressure",
+  "description": "New stressors pile onto what you're already carrying.",
+  "content": "It's not one catastrophic event—just another thing added to the pile. Another obligation. Another problem. Another person needing something from you. Individually, it's manageable. But you're already carrying so much, and this addition pushes you closer to your limit. You feel the strain intensifying—shorter temper, worse sleep, constant exhaustion. The margin for error is shrinking. You're not sure how much more you can take.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "psychological_strain",
+        "delta": 12
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "power_through",
+      "text": "Just handle it like you handle everything else",
+      "description": "You've managed before. You'll manage now.",
+      "resultText": "You add this to the pile and keep going. Don't think about the load; just carry it. Don't acknowledge the strain; just push through. It's what you've always done. But you can feel yourself compressing under the weight, becoming smaller, harder, less alive. Functioning, but not thriving. Surviving, but at what cost? The question lingers, unanswered.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["endurance", "cost"]
+    },
+    {
+      "id": "set_boundaries",
+      "text": "Something has to go",
+      "description": "You can't carry everything. Choose what to put down.",
+      "resultText": "You force yourself to make hard choices. What can you drop? Who can you disappoint? What standard can you lower? It feels like failure, like letting people down, like admitting weakness. But it's also survival. You identify the least essential burdens and deliberately set them aside. The guilt is real, but so is the breathing room. You're learning that you can't pour from an empty cup.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["boundaries", "self_care"]
+    },
+    {
+      "id": "ask_for_help",
+      "text": "Tell someone you're struggling",
+      "description": "You don't have to carry this alone.",
+      "resultText": "Swallowing your pride, you admit to someone that you're overwhelmed. The vulnerability is terrifying—what if they judge you? What if they can't help? But the response surprises you. They don't think less of you; they help. They take something off your plate. They offer support. They remind you that struggling isn't weakness. The strain is still there, but it's distributed now. You're not alone with it anymore.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["support", "connection"]
+    }
+  ],
+  "priority": 21,
+  "category": "mental_health",
+  "tags": ["psychological_strain", "stress", "character_development"]
+}

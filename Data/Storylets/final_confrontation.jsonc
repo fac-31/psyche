@@ -1,0 +1,183 @@
+{
+  // C6: Final stage of the enemy/conflict chain
+  "id": "C6",
+  "title": "The Final Confrontation",
+  "description": "Everything has led to this moment. The conflict reaches its conclusion.",
+  "content": "This is it—the endgame. All the escalation, all the maneuvering, all the damage dealt and received has brought you here. The conflict resolves, one way or another. There's a strange clarity to it, even peace. The uncertainty is over. The struggle that's defined so much of your life is reaching its conclusion. You don't know yet if you'll win or lose, survive or be destroyed. You just know that after this, nothing will be the same. The only question left is who you'll be when it's over.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "C5",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "C6"
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "pyrrhic_victory",
+      "text": "Win at any cost",
+      "description": "You'll stand victorious, no matter what it takes.",
+      "resultText": "You win. The enemy is defeated, destroyed, gone. Victory is yours, complete and total. But as you stand in the wreckage, you realize what it cost. Relationships sacrificed. Principles abandoned. Parts of yourself you can't get back. You're victorious and broken simultaneously. People look at you with a mix of respect and fear, and you can't tell which is more isolating. You won, but you're not sure the person who won is someone you want to be.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -25
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -30
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 35
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["victory", "pyrrhic", "cost"]
+    },
+    {
+      "id": "choose_humanity",
+      "text": "Refuse to finish them. Choose mercy over victory.",
+      "description": "You can win the war and lose yourself, or lose the war and keep your soul.",
+      "resultText": "At the critical moment, when you have everything you need to destroy them completely, you... don't. You choose to be human instead of victorious. You extend mercy you haven't earned and they don't deserve. They're stunned. Everyone is stunned. You might have just handed them the ability to regroup and strike again. But you've also proven to yourself that the conflict didn't completely corrupt you. You're still capable of choosing compassion over conquest. That might matter more than winning.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 70
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -50
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 25
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 40
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -25
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["mercy", "transcendence", "humanity"]
+    },
+    {
+      "id": "mutual_recognition",
+      "text": "See them—really see them—and be seen in return",
+      "description": "Maybe you're not so different after all.",
+      "resultText": "In the final moment, something unexpected happens: you actually look at each other as human beings rather than enemies. You see their fear, their damage, their humanity. And they see yours. The recognition doesn't erase what's happened, but it contextualizes it. You were both caught in a system that creates conflicts, both acting out patterns older than yourselves. The ending isn't victory or defeat—it's understanding. You walk away changed, not by triumph or loss, but by finally seeing the person you'd turned into a monster.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 80
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -60
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 25
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 50
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -30
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["recognition", "transcendence", "understanding"]
+    }
+  ],
+  "priority": 47,
+  "category": "conflict",
+  "tags": ["enemies_made", "resolution", "chain", "transformation", "culmination"]
+}

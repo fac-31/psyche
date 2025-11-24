@@ -1,0 +1,134 @@
+{
+  // Self-Assurance Crisis: An event that damages the character's confidence
+  "id": "self_assurance_crisis",
+  "title": "A Blow to Confidence",
+  "description": "Something happens that shakes your sense of self-worth.",
+  "content": "The setback hits harder than expected—a failure, a criticism, a moment when your inadequacy is exposed for all to see. The confident facade crumbles. All the negative thoughts you'd been holding at bay come flooding back with renewed vigor. Maybe they were right all along. Maybe you really aren't good enough.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "SelfAssurance",
+        "delta": -8
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "spiral_downward",
+      "text": "Let the doubts consume you",
+      "description": "Why fight it? This is who you really are.",
+      "resultText": "You stop resisting and let the negative spiral take you. Every past failure comes back to haunt you, each one confirming what you've always suspected: you're not enough. You withdraw, avoid challenges, stop trying. The world becomes smaller, darker. If you don't try, you can't fail again. But you also can't grow.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -7
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["crisis", "withdrawal"]
+    },
+    {
+      "id": "analyze_failure",
+      "text": "Examine what went wrong objectively",
+      "description": "This is data, not destiny.",
+      "resultText": "You force yourself to look at the failure with clear eyes, stripping away the emotional weight. What actually happened? What was in your control? What wasn't? The analysis hurts, but it's honest. You find genuine lessons in the rubble—things you can actually improve. The confidence is still shaken, but now you have a path forward.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -3
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "learning"]
+    },
+    {
+      "id": "seek_support",
+      "text": "Reach out to others",
+      "description": "You don't have to carry this alone.",
+      "resultText": "Swallowing your pride, you open up to someone you trust. The vulnerability feels like weakness at first, but their response surprises you—empathy, shared stories of their own failures, genuine support. They don't dismiss your pain, but they also don't let you wallow. Their perspective helps you see that one setback doesn't define you.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -2
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["support", "connection"]
+    }
+  ],
+  "priority": 17,
+  "category": "psychological",
+  "tags": ["self_assurance", "crisis", "character_development"]
+}

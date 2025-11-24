@@ -1,0 +1,147 @@
+{
+  // Low Ambition: The character lacks vision or dreams for the future
+  "id": "stifled_ambition",
+  "title": "The Narrowing of Possibilities",
+  "description": "You've stopped dreaming about what could be, settling for what is.",
+  "content": "When people ask about your goals, your mind goes blank. You used to have dreams, maybe, but they've eroded into vague wishes or disappeared entirely. The future feels like more of the same—not terrible, not great, just... continuing. Others talk about their plans with shining eyes, and you feel a dull envy mixed with exhaustion. Wanting things, reaching for things, hoping for things—it all seems like such effort for such uncertain returns.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Ambition",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "embrace_contentment",
+      "text": "Maybe contentment is underrated",
+      "description": "Why reach for more when you have enough?",
+      "resultText": "You lean into the lack of ambition, reframing it as wisdom rather than limitation. Wanting less means suffering less disappointment. You cultivate gratitude for what you have, stop comparing yourself to others' achievements. There's a peace in this, though others mistake it for resignation. You tell yourself you're evolved, not stuck. But sometimes, in quiet moments, you wonder if you're just afraid.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -4
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": [
+        "resignation",
+        "peace"
+      ]
+    },
+    {
+      "id": "kindle_small_dream",
+      "text": "Start with one small want",
+      "description": "Ambition doesn't have to be grand to matter.",
+      "resultText": "You give yourself permission to want something small, achievable. Not world domination—just one modest goal. As you work toward it, something stirs. The act of desiring, planning, striving feels unfamiliar but not entirely unwelcome. When you reach that small goal, the satisfaction is surprising. Maybe ambition isn't about scale. Maybe it's about direction.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 35
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": [
+        "growth",
+        "beginnings"
+      ]
+    },
+    {
+      "id": "borrow_ambition",
+      "text": "Attach yourself to someone else's vision",
+      "description": "Maybe you don't need your own dreams if you can help with theirs.",
+      "resultText": "You find someone whose ambition is strong enough for both of you. You become their supporter, their enabler, their second. Their excitement becomes your excitement by proxy. It's easier than generating your own vision. You tell yourself this is valuable—after all, every leader needs followers. But you can't shake the feeling that you're living in someone else's story.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 4
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": [
+        "following",
+        "vicarious"
+      ]
+    }
+  ],
+  "priority": 81,
+  "category": "psychological",
+  "tags": [
+    "ambition",
+    "stagnation",
+    "character_development"
+  ]
+}

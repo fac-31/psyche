@@ -1,0 +1,147 @@
+{
+  // Low psychological_strain: The character is mentally healthy
+  "id": "unburdened_mind",
+  "title": "The Lightness of Being",
+  "description": "Your mind feels clear, unburdened by overwhelming stress or anxiety.",
+  "content": "You wake up and the day doesn't immediately feel like a threat. Challenges exist, but they seem manageable. Your thoughts don't spiral into catastrophe. Sleep comes naturally. You can laugh without it feeling forced. This mental ease is something you've learned not to take for granted—you've known darker times, and you're grateful for this respite. The question is how to maintain it.",
+  "prerequisites": [
+    {
+      "type": "QualityRequirement",
+      "properties": {
+        "qualityId": "psychological_strain",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "protect_peace",
+      "text": "Guard this state carefully",
+      "description": "Set boundaries to maintain your mental health.",
+      "resultText": "You become intentional about protecting your peace. You say no to things that would overwhelm you. You maintain routines that support your wellbeing. You're careful about who and what you let into your mental space. Some call it selfish; you call it necessary maintenance. The mental clarity is worth protecting, even if that means disappointing others sometimes.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -4
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": [
+        "self_care",
+        "boundaries"
+      ]
+    },
+    {
+      "id": "take_on_more",
+      "text": "Use this strength to help others",
+      "description": "You have capacity others lack right now.",
+      "resultText": "Your mental health feels like a resource you can share. You start taking on more—helping friends in crisis, volunteering for difficult tasks, being the stable presence others need. It feels good to be needed, to use your strength in service of others. The strain begins accumulating slowly, almost imperceptibly. You tell yourself you can handle it, and for now, maybe you can.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": [
+        "generosity",
+        "service"
+      ]
+    },
+    {
+      "id": "build_resilience",
+      "text": "Strengthen yourself for future challenges",
+      "description": "Use this good period to develop coping skills.",
+      "resultText": "You recognize this mental clarity as an opportunity to prepare for harder times. You develop practices, build support systems, learn about yourself. When you're not in crisis is exactly when you should be strengthening your resilience. You're not just enjoying the good mental health—you're actively working to make it sustainable and to have resources ready for when things get difficult again.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": [
+        "wisdom",
+        "preparation"
+      ]
+    }
+  ],
+  "priority": 80,
+  "category": "mental_health",
+  "tags": [
+    "psychological_strain",
+    "wellness",
+    "character_development"
+  ]
+}

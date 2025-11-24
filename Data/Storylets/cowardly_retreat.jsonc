@@ -1,0 +1,134 @@
+{
+  // Low Bravery: The character is selfish, avoiding risk and sacrifice
+  "id": "cowardly_retreat",
+  "title": "The Safety of Self-Preservation",
+  "description": "You've learned to prioritize your own safety and comfort above all else.",
+  "content": "When situations get difficult, you find exits. When people need help, you have reasons why you can't. When causes demand sacrifice, you're suddenly busy. You've constructed your life around avoiding risk, discomfort, and inconvenience. You tell yourself it's wisdom—why destroy yourself for others who wouldn't do the same for you? But the rationalization is getting harder to believe. The safety you've built feels more and more like a cage.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Bravery",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "prioritize_self",
+      "text": "Self-preservation is logical",
+      "description": "You can't help anyone if you destroy yourself.",
+      "resultText": "You lean into the self-protective instinct, building even higher walls around your comfort and safety. Every request for help is evaluated purely on cost-benefit to yourself. Every opportunity for growth is weighed against potential pain. You become increasingly isolated, but also increasingly safe. Nobody can hurt you, but nobody can really reach you either. The loneliness is the price of security.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["isolation", "selfishness"]
+    },
+    {
+      "id": "small_risk",
+      "text": "Try something slightly uncomfortable",
+      "description": "Start small. Just one small act of courage.",
+      "resultText": "You identify something that scares you but won't destroy you—a small risk, a minor discomfort, a modest act of courage. Your heart races as you do it, but you survive. More than survive—you feel something you haven't felt in a long time: pride. The world doesn't end when you're uncomfortable. The risk doesn't consume you. Maybe courage isn't an all-or-nothing proposition. Maybe it can start this small.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 35
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "courage"]
+    },
+    {
+      "id": "help_someone",
+      "text": "Take a risk for someone else's sake",
+      "description": "Maybe courage is easier when it's not just about you.",
+      "resultText": "You find someone who genuinely needs help—help that would cost you something to provide. Against every self-protective instinct, you do it anyway. The vulnerability is terrifying, but seeing their gratitude, their relief, sparks something in you. You remember that there's more to life than safety. That being needed, being useful, being generous can matter more than being comfortable. It doesn't erase your fear, but it gives you a reason to face it.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["altruism", "connection"]
+    }
+  ],
+  "priority": 63,
+  "category": "psychological",
+  "tags": ["bravery", "cowardice", "character_development"]
+}

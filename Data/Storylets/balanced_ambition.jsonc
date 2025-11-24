@@ -1,0 +1,135 @@
+{
+  // Moderate Ambition: The character has realistic goals and dreams
+  "id": "balanced_ambition",
+  "title": "Dreams Within Reach",
+  "description": "Your ambitions are neither overwhelming nor absent—a sustainable relationship with the future.",
+  "content": "You have goals, plans, desires for something more than what you currently have. But they're grounded in reality, shaped by understanding of your actual capabilities and circumstances. You're not building castles in the sky, but you're not resigned to stagnation either. It's a practical kind of hoping—less romantic than grand visions, but more likely to bear fruit.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Ambition",
+        "minValue": 30,
+        "maxValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "steady_progress",
+      "text": "Keep working toward your goals",
+      "description": "Slow and steady has its own rewards.",
+      "resultText": "You maintain your current trajectory—setting modest goals, achieving them, setting new ones. It's not flashy, but it's effective. You make real progress while others are still daydreaming or have given up entirely. People start seeing you as reliable, capable—someone who actually delivers rather than just talks. Your ambition is sustainable because it never outpaces your ability to act.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 4
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["consistency", "progress"]
+    },
+    {
+      "id": "dream_bigger",
+      "text": "Expand your vision",
+      "description": "Maybe you're playing it too safe.",
+      "resultText": "You start letting yourself imagine possibilities beyond the practical. What if you reached higher? What if you took bigger risks? The realistic goals that felt comfortable now seem timid. You sketch out more ambitious plans, ones that make your heart race with a mix of excitement and fear. It's intoxicating, this expansion of possibility. You're not sure if you're growing or just losing touch with reality.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["expansion", "risk"]
+    },
+    {
+      "id": "simplify_wants",
+      "text": "Question whether you need these goals",
+      "description": "Wanting less might mean suffering less.",
+      "resultText": "You start examining your ambitions more critically. Which goals are genuinely yours, and which are just internalized expectations? What do you actually want versus what you think you should want? As you strip away the borrowed ambitions, the real ones become clearer—fewer, simpler, but more authentic. You're not giving up; you're getting honest.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["clarity", "authenticity"]
+    }
+  ],
+  "priority": 63,
+  "category": "psychological",
+  "tags": ["ambition", "balance", "character_development"]
+}

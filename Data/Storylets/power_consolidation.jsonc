@@ -1,0 +1,155 @@
+{
+  // B3: Third stage of the social power chain
+  "id": "B3",
+  "title": "Power Consolidation",
+  "description": "You're no longer just influential—you're becoming indispensable.",
+  "content": "Your network has reached critical mass. You're not just connected to powerful people; you're the connection between powerful people. Major decisions increasingly flow through you. Your absence from conversations is notable. People defer to your judgment not out of politeness but genuine respect for your position. You've become infrastructure in the social landscape—not just a participant but a necessary component of how things work. This centrality is intoxicating and isolating in equal measure.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "B2",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "B3"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "social_capital",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "entrench_position",
+      "text": "Make yourself even more indispensable",
+      "description": "Security comes from being irreplaceable.",
+      "resultText": "You work to make your position unassailable. You cultivate exclusive relationships, control key information flows, position yourself as the only bridge between crucial parties. The power becomes self-reinforcing—people need you because everyone else needs you. You're building a kind of social monopoly, and it's effective. But you're also aware that you're becoming what you once resented: a gatekeeper, someone whose power depends on controlling access rather than creating value.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 4
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["control", "gatekeeping"]
+    },
+    {
+      "id": "distribute_power",
+      "text": "Deliberately make yourself less central",
+      "description": "Good systems shouldn't depend on single points of failure.",
+      "resultText": "You recognize the danger of being indispensable—not just for the system but for yourself. You start deliberately training others, making direct introductions that bypass you, documenting processes so they don't require your involvement. Some see this as diminishing your power. You see it as making the network more resilient and yourself less trapped. Real leadership, you're learning, sometimes means making yourself unnecessary.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 65
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["wisdom", "distribution"]
+    },
+    {
+      "id": "leverage_for_change",
+      "text": "Use this centrality to push for systemic improvements",
+      "description": "If you're infrastructure, build better infrastructure.",
+      "resultText": "Your position gives you unique leverage to change how things work. You start using it—pushing for more transparency, advocating for underrepresented voices, changing norms about who gets access and how. You're not just consolidating power; you're trying to reshape the system itself. It's ambitious and risky. Some powerful people resist having their advantages disrupted. But you have enough clout now that they have to listen, even if they don't like what they hear.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["reform", "courage"]
+    }
+  ],
+  "priority": 47,
+  "category": "social",
+  "tags": ["social_capital", "power", "chain", "consolidation"]
+}

@@ -1,0 +1,134 @@
+{
+  // Low Drive: The character struggles to take action or maintain momentum
+  "id": "listless_inertia",
+  "title": "The Weight of Stillness",
+  "description": "Taking action feels like moving through molasses—every step requires monumental effort.",
+  "content": "The to-do list sits untouched. The emails go unanswered. The projects languish half-finished. You tell yourself you'll start tomorrow, but tomorrow comes and goes with the same paralysis. It's not that you don't care—it's that caring doesn't translate into doing. The gap between intention and action has become a chasm. You watch others move through the world with ease, accomplishing things, making progress, and you can't figure out how they do it.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Drive",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "surrender_inertia",
+      "text": "Stop fighting it",
+      "description": "Maybe you're just not meant to be productive.",
+      "resultText": "You let go of the guilt and the expectations. Some people are doers; you're not one of them. You settle into passivity like a warm bath. Bills pile up, opportunities pass, but you tell yourself you're choosing a different path—one of acceptance, of being rather than doing. The immediate relief of dropping the burden is real, but so is the growing sense that you're disappearing into your own life.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["resignation", "passivity"]
+    },
+    {
+      "id": "tiny_action",
+      "text": "Start with something ridiculously small",
+      "description": "One tiny action beats infinite planning.",
+      "resultText": "You give yourself permission to do the smallest possible thing—so small it feels almost pointless. Answer one email. Work for five minutes. Make the bed. The tininess of the task makes it achievable. And when you do it, something shifts. The next small thing becomes slightly easier. You're not suddenly driven, but you've proven to yourself that action is possible. Momentum, you discover, can start microscopic.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 30
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["progress", "small_wins"]
+    },
+    {
+      "id": "find_accountability",
+      "text": "Let someone else pull you forward",
+      "description": "If you can't generate momentum, borrow it.",
+      "resultText": "You find someone—a friend, a therapist, a group—and make yourself accountable to them. You report what you're going to do and what you did. Their expectations become external scaffolding for your missing internal drive. It's humbling, admitting you need this support. But it works. You start moving not because you want to, but because someone else is watching. It's a start.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["support", "accountability"]
+    }
+  ],
+  "priority": 14,
+  "category": "psychological",
+  "tags": ["drive", "inertia", "character_development"]
+}

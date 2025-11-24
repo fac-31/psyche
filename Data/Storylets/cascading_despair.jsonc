@@ -1,0 +1,148 @@
+{
+  // A3: Third stage of the psychological crisis chain
+  "id": "A3",
+  "title": "Cascading Despair",
+  "description": "The darkness has a momentum of its own now, pulling you deeper.",
+  "content": "You've entered a vicious cycle: the strain makes it hard to function, which creates more problems, which creates more strain. You're watching yourself deteriorate and can't seem to stop it. Relationships are fraying. Responsibilities are slipping. Your grip on basic self-care is loosening. The worst part isn't the suffering—it's the growing conviction that this is permanent, that you've fundamentally broken something in yourself that can't be repaired.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "A2",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "A3"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "psychological_strain",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "give_up",
+      "text": "Stop trying to fix it",
+      "description": "Let the cascade take you.",
+      "resultText": "You stop fighting the deterioration and let it happen. Bills go unpaid. Messages go unanswered. Days blur together. You're sinking, and you've stopped swimming. There's a terrible peace in the surrender, but it's the peace of drowning. People are trying to reach you, but their voices sound distant, unimportant. You're disappearing, and part of you thinks that might be for the best.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["surrender", "crisis"]
+    },
+    {
+      "id": "emergency_intervention",
+      "text": "This is an emergency",
+      "description": "Reach out for immediate help.",
+      "resultText": "You recognize that you're in serious danger—if not physically, then psychologically. This isn't something to handle gradually or politely. You need intervention now. You call a crisis line. You show up at an emergency room. You tell someone who can help that you are not okay. The admission is terrifying and humiliating, but it's also the first real step toward safety you've taken in a long time. Help exists. You just have to be brave enough to take it.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 55
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -30
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 20
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["crisis_intervention", "survival"]
+    },
+    {
+      "id": "break_one_cycle",
+      "text": "Interrupt just one part of the cascade",
+      "description": "You can't fix everything, but you can fix one thing.",
+      "resultText": "You can't address the whole mess, but maybe you can break one link in the chain. You identify one specific area where you can stop the deterioration—sleep, or food, or reaching out to one person. It's tiny compared to the scope of the problem, but cascades work in both directions. One small improvement creates space for another. You're not trying to fix everything. You're just trying to stop falling for one moment.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 55
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["recovery", "incremental"]
+    }
+  ],
+  "priority": 82,
+  "category": "mental_health",
+  "tags": ["psychological_strain", "crisis", "chain", "cascade"]
+}

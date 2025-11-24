@@ -1,0 +1,134 @@
+{
+  // High Bravery: The character is reckless, taking risks without proper consideration
+  "id": "fearless_heart",
+  "title": "The Absence of Fear",
+  "description": "You've become so comfortable with risk that you no longer properly assess danger.",
+  "content": "Fear has stopped being your guide. You throw yourself into situations that make others hesitate—not because you've carefully weighed the risks, but because the risks don't register anymore. You pride yourself on your courage, your willingness to act when others freeze. But there's a fine line between bravery and recklessness, and you stopped seeing that line a while ago. Every close call just makes you more convinced of your invincibility.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Bravery",
+        "minValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "embrace_recklessness",
+      "text": "Caution is for the timid",
+      "description": "Fortune favors the bold.",
+      "resultText": "You lean into the fearlessness, taking ever-bigger risks, pushing ever-closer to the edge. Each gamble that pays off validates your approach. Why would you hold back when audacity keeps working? Other people's concerns about your safety feel like jealousy or weakness. You're alive in a way they'll never understand. At least, that's what you tell yourself as the close calls accumulate.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 2
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["recklessness", "danger"]
+    },
+    {
+      "id": "relearn_fear",
+      "text": "Fear exists for a reason",
+      "description": "Maybe you should start listening to it again.",
+      "resultText": "You force yourself to pause before acting, to actually assess risks instead of dismissing them. It feels like weakness at first, like losing something essential to who you are. But as you cultivate healthy caution, you realize you're not becoming cowardly—you're becoming smart. The bravery becomes more strategic, less suicidal. You can still be bold when it matters, but now you can also recognize when retreat is wisdom.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["wisdom", "maturity"]
+    },
+    {
+      "id": "protect_others",
+      "text": "Consider how your risks affect those who care about you",
+      "description": "Bravery shouldn't mean selfishness.",
+      "resultText": "You start thinking about the people who would be hurt if your recklessness finally catches up with you. Is your fearlessness fair to them? The realization doesn't eliminate your boldness, but it tempers it. You take fewer unnecessary risks, not out of fear for yourself, but out of care for others. Your courage becomes less about proving something and more about protecting something. It's a quieter kind of bravery, but more sustainable.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["responsibility", "connection"]
+    }
+  ],
+  "priority": 55,
+  "category": "psychological",
+  "tags": ["bravery", "recklessness", "character_development"]
+}

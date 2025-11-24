@@ -1,0 +1,134 @@
+{
+  // Drive Drain: An event that saps motivation and energy
+  "id": "drive_drain",
+  "title": "When the Engine Stalls",
+  "description": "Something depletes your motivation, leaving you struggling to find the energy to act.",
+  "content": "The exhaustion isn't just physical—it's existential. Every task feels pointless, every effort seems futile. You've been pushing for so long, and what do you have to show for it? The momentum you'd been riding suddenly evaporates. Your to-do list becomes a monument to obligations you can't bring yourself to care about. People ask what's wrong, but you don't have words for it. You're just... done.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Drive",
+        "delta": -12
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "collapse_into_rest",
+      "text": "Stop fighting and just rest",
+      "description": "Maybe your body is forcing what your mind wouldn't allow.",
+      "resultText": "You let go. Cancel commitments. Ignore the guilt. Sleep for hours. Stare at walls. Do nothing and try not to judge yourself for it. It feels like failure, like giving up, but it also feels necessary. You're so tired. Maybe this isn't depression or laziness—maybe it's just the inevitable consequence of pushing too hard for too long. Maybe rest is exactly what you need.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["rest", "burnout"]
+    },
+    {
+      "id": "examine_why",
+      "text": "Investigate what drained you",
+      "description": "This exhaustion is trying to tell you something.",
+      "resultText": "Instead of just collapsing or pushing through, you pause to examine the drain. What specifically depleted you? Which efforts felt meaningless? Which goals stopped mattering? The investigation is revealing—you discover you've been driving toward things you don't actually care about, maintaining momentum for its own sake. The drain isn't failure; it's your psyche staging an intervention.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["insight", "learning"]
+    },
+    {
+      "id": "find_new_fuel",
+      "text": "Search for what actually motivates you",
+      "description": "If the old motivations are dead, find new ones.",
+      "resultText": "You accept that your previous sources of drive are exhausted, so you go looking for new ones. What do you actually care about now? What problems feel worth solving? What would make getting up tomorrow feel purposeful? The answers surprise you—they're different from what motivated you before. You're not recovering old drive; you're discovering new drive. It's smaller, but it's real.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -3
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["renewal", "discovery"]
+    }
+  ],
+  "priority": 89,
+  "category": "psychological",
+  "tags": ["drive", "exhaustion", "character_development"]
+}

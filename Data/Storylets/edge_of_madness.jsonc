@@ -1,0 +1,148 @@
+{
+  // A4: Fourth stage of the psychological crisis chain
+  "id": "A4",
+  "title": "The Edge of Madness",
+  "description": "You're losing your grip on what's real and what isn't.",
+  "content": "The strain has pushed you to a place where reality feels negotiable. You're having thoughts you've never had before, thoughts that scare you. Time feels strange. Your sense of self feels fragmented. You catch yourself talking to people who aren't there, or forgetting entire conversations that were. You're not sure if you're experiencing a breakdown or if you've already broken and this is what comes after. The boundary between functioning and not functioning has become dangerously thin.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "A3",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "A4"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "psychological_strain",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "let_go",
+      "text": "Stop trying to hold onto reality",
+      "description": "Maybe sanity is overrated.",
+      "resultText": "You stop trying to maintain the pretense of okay-ness and let yourself drift. If your mind is breaking, let it break. If reality is too much, let it go. You slip into a space that's neither fully conscious nor unconscious, where days and nights blend, where the voice in your head might be yours or might be someone else's. It's terrifying and peaceful at once. You're not sure if this is surrender or escape, but you're too far gone to care.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["breakdown", "dissociation"]
+    },
+    {
+      "id": "urgent_help",
+      "text": "Get immediate professional intervention",
+      "description": "This is a psychiatric emergency.",
+      "resultText": "Some part of you that's still functioning recognizes this for what it is: a psychiatric emergency. You need immediate, intensive help. You don't have the luxury of scheduling appointments or trying to power through. Whether it's calling emergency services, checking yourself into a facility, or having someone who loves you make those decisions for you—you need intervention now. It's the hardest thing you've ever done, and also the most necessary. You're saving your own life.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -40
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 25
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["crisis", "intervention", "survival"]
+    },
+    {
+      "id": "anchor_to_something",
+      "text": "Find something concrete to hold onto",
+      "description": "Ground yourself in anything real.",
+      "resultText": "You're slipping, but you're not gone yet. You find something tangible to anchor to—a person's voice, a physical sensation, a simple task you can still do. When reality starts slipping, you return to this anchor. It's not a cure, but it's a tether. You're using everything you have left to not lose yourself completely. The fight is exhausting, but the alternative is oblivion. So you keep fighting, one moment at a time.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["grounding", "resilience"]
+    }
+  ],
+  "priority": 66,
+  "category": "mental_health",
+  "tags": ["psychological_strain", "crisis", "chain", "breakdown"]
+}

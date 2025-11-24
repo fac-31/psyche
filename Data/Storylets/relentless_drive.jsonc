@@ -1,0 +1,134 @@
+{
+  // High Drive: The character steamrolls everything in their path
+  "id": "relentless_drive",
+  "title": "The Unstoppable Machine",
+  "description": "You move through life like a force of nature, crushing obstacles and people alike.",
+  "content": "There's always a next task, a next goal, a next thing demanding your attention. You wake up already in motion and fall asleep planning tomorrow. Nothing is allowed to slow you down—not fatigue, not other people's needs, not your own doubts. You pride yourself on your productivity, your momentum, your refusal to accept limitations. But you're not sure if you're driving forward or just running from stillness.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Drive",
+        "minValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "accelerate_harder",
+      "text": "The answer is always more",
+      "description": "Resting is for people without purpose.",
+      "resultText": "You push even harder, filling every gap in your schedule, optimizing every moment, measuring everything in terms of productivity. Sleep becomes optional. Relationships become transactional. Joy becomes another target to achieve. You're accomplishing an astonishing amount, but you're also hollowing out. The momentum feels less like progress and more like fleeing, but stopping isn't an option you allow yourself to consider.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["burnout", "intensity"]
+    },
+    {
+      "id": "practice_stillness",
+      "text": "Force yourself to stop",
+      "description": "Maybe the constant motion is avoiding something.",
+      "resultText": "You deliberately create space with nothing scheduled, nothing demanding your attention. It's excruciating at first—the restlessness, the guilt, the anxiety that you're falling behind. But as you sit with the discomfort, something emerges: clarity about what you're running from, and recognition that perpetual motion isn't the same as meaningful progress. The slowing down feels like defeat, but also relief.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["rest", "reflection"]
+    },
+    {
+      "id": "redirect_energy",
+      "text": "Channel the drive more thoughtfully",
+      "description": "Intensity doesn't have to mean steamrolling.",
+      "resultText": "You maintain your high energy but become more selective about where you direct it. Instead of doing everything, you focus on what matters. Instead of crushing obstacles, you find ways around them. Instead of ignoring people in your way, you bring them along. Your drive becomes more strategic, less reactive. You're still intense, but the intensity now serves purpose rather than just feeding on itself.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 7
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["balance", "effectiveness"]
+    }
+  ],
+  "priority": 27,
+  "category": "psychological",
+  "tags": ["drive", "intensity", "character_development"]
+}

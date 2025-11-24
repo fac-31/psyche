@@ -1,0 +1,148 @@
+{
+  // A2: Continuation of the psychological crisis chain
+  "id": "A2",
+  "title": "Deeper Into Darkness",
+  "description": "The breaking point wasn't the end—it was the beginning of something worse.",
+  "content": "You thought hitting bottom meant you could only go up. You were wrong. The strain has evolved into something more insidious. It's not just exhaustion anymore—it's a fundamental questioning of whether anything matters. Tasks that used to seem important now feel pointless. Relationships that used to sustain you feel like obligations. You're going through the motions, but the meaning has drained out of everything. You're not living; you're haunting your own life.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "A1",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "A2"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "psychological_strain",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "numb_acceptance",
+      "text": "Maybe this is just how life is",
+      "description": "Stop fighting it. This is reality.",
+      "resultText": "You stop resisting the darkness and let it become your baseline. This is just how things are now. The world is meaningless, people are disappointing, hope is naive. You adopt a grim acceptance that feels like wisdom but might just be despair. The immediate pain lessens when you stop fighting, but something essential is being lost. You're adapting to darkness by becoming darkness.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Ambition",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["despair", "nihilism"]
+    },
+    {
+      "id": "professional_help",
+      "text": "This is beyond what you can handle alone",
+      "description": "Seek professional support.",
+      "resultText": "You recognize that this has crossed from temporary crisis into something that needs professional intervention. Making the appointment feels like admitting defeat, but showing up feels like survival. You sit across from someone trained to help people in darkness and begin the hard work of finding your way back to the light. It's not a quick fix—it's a beginning. But beginnings are something.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["healing", "professional_help"]
+    },
+    {
+      "id": "find_one_thing",
+      "text": "Look for one small thing that still matters",
+      "description": "If everything is meaningless, find one exception.",
+      "resultText": "You search through the gray wasteland of your psyche for one thing—anything—that still sparks something. A person you care about. A small pleasure. A value you still hold. It's tiny, almost pathetically so, but it's real. You hold onto it like a lifeline. Maybe meaning isn't a given; maybe it's something you have to actively create, one small thing at a time. It's not much, but it's a start.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["hope", "meaning"]
+    }
+  ],
+  "priority": 6,
+  "category": "mental_health",
+  "tags": ["psychological_strain", "crisis", "chain", "deepening"]
+}

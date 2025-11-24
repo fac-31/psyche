@@ -1,0 +1,134 @@
+{
+  // High Compassion: The character feels too much, struggles with boundaries
+  "id": "high_compassion",
+  "title": "The Burden of Feeling Everything",
+  "description": "You absorb others' pain like a sponge, unable to separate their suffering from your own.",
+  "content": "Every hurt you witness becomes your hurt. Every tear shed in your presence might as well be your own. You've built your identity around being the person who cares, who helps, who's always available. But lately, you're not sure where others' pain ends and yours begins. You're drowning in empathy, and nobody seems to notice—or if they do, they just bring you more of their problems.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Compassion",
+        "minValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "embrace_martyr",
+      "text": "This is who you are—the one who cares",
+      "description": "Someone has to feel for those who can't.",
+      "resultText": "You lean into the role fully, becoming a lightning rod for others' suffering. Your own needs become background noise. People seek you out because you'll always say yes, always make time, always absorb their pain. You tell yourself this is noble, but the exhaustion is bone-deep. You're disappearing into everyone else's stories.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["sacrifice", "burnout"]
+    },
+    {
+      "id": "build_boundaries",
+      "text": "Learn to say no",
+      "description": "You can care without losing yourself.",
+      "resultText": "It feels cruel at first, turning someone away when they need you. But you practice: 'I can't help with that right now.' 'That sounds difficult, but I'm not the right person.' The guilt is intense, but something else emerges—space to breathe. You discover you can still be compassionate without being consumed. Your empathy becomes more sustainable.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["boundaries", "self_care"]
+    },
+    {
+      "id": "discerning_compassion",
+      "text": "Be strategic about who you help",
+      "description": "Not every crisis requires your intervention.",
+      "resultText": "You start evaluating requests more carefully. Is this person genuinely in need, or are they simply comfortable making you their emotional dumping ground? Are you actually helping, or enabling? It feels calculating, but your compassion becomes more effective. You help fewer people, but help them better.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 7
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["wisdom", "effectiveness"]
+    }
+  ],
+  "priority": 84,
+  "category": "psychological",
+  "tags": ["compassion", "empathy", "character_development"]
+}

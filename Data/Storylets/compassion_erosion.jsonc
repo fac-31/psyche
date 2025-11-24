@@ -1,0 +1,134 @@
+{
+  // Compassion Erosion: An event that hardens the character's heart
+  "id": "compassion_erosion",
+  "title": "When Caring Becomes Too Costly",
+  "description": "Something happens that makes you question whether compassion is worth the pain it brings.",
+  "content": "You've been burned again—used, manipulated, or simply exhausted by someone you tried to help. Maybe they betrayed your trust. Maybe they demanded more than you could give and resented you anyway. Maybe you poured yourself into their healing only to watch them destroy themselves despite everything you offered. The disappointment curdles into something darker: the suspicion that caring is just another word for being a fool.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Compassion",
+        "delta": -10
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "close_heart",
+      "text": "Never again",
+      "description": "Protect yourself by caring less.",
+      "resultText": "You make a decision: no more. No more bleeding for people who won't help themselves. No more vulnerability with those who'll weaponize it. No more compassion for those who see it as weakness. The walls go up, higher and thicker than before. You feel safer, but also more alone. The world becomes a colder place, but at least it can't hurt you as easily.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 4
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["protection", "isolation"]
+    },
+    {
+      "id": "learn_discernment",
+      "text": "Be more careful about who deserves your empathy",
+      "description": "Not everyone is worthy of your compassion.",
+      "resultText": "You don't close your heart entirely, but you become more selective. You start reading people more carefully, looking for red flags, asking harder questions before investing emotionally. Some call it cynical; you call it wise. Your compassion becomes conditional, strategic. You help those who help themselves, protect those who are genuinely vulnerable, and avoid those who drain without reciprocating.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["wisdom", "boundaries"]
+    },
+    {
+      "id": "recommit_to_caring",
+      "text": "This doesn't invalidate the value of compassion",
+      "description": "One betrayal doesn't negate all the good your empathy has done.",
+      "resultText": "You acknowledge the hurt but refuse to let it calcify into cynicism. Yes, you were burned. Yes, it's unfair. But closing your heart entirely would be letting this one experience define you. You process the disappointment, learn what lessons you can, and then consciously choose to remain open. It takes courage to stay soft in a world that punishes softness.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": -3
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Bravery",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["resilience", "courage"]
+    }
+  ],
+  "priority": 12,
+  "category": "psychological",
+  "tags": ["compassion", "betrayal", "character_development"]
+}

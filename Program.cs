@@ -1,21 +1,255 @@
-﻿using Psyche.Systems.CharacterCreation;
+using Psyche.Data;
+using Psyche.Models;
+using Psyche.Models.Mocks;
+using Psyche.Systems.CharacterCreation;
+using Psyche.UI;
+using Character = Psyche.Models.Mocks.Character;
 
-Console.WriteLine("=== Character Creation Test ===");
+namespace Psyche;
 
-var builder = new CharacterBuilder();
-var character = builder
-    .WithName("Test Subject")
-    .WithRandomDrive()
-    .Build();
+/// <summary>
+/// Main entry point for the Psyche application.
+/// Provides a menu to choose between Character Builder test and Game Loop Prototype.
+/// </summary>
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("=== PSYCHE ===");
+        Console.WriteLine();
+        Console.WriteLine("Choose a mode:");
+        Console.WriteLine("1. Character Builder Test");
+        Console.WriteLine("2. Game Loop Prototype");
+        Console.WriteLine();
+        Console.Write("Enter your choice (1 or 2): ");
 
-Console.WriteLine($"Created Character: {character.Name}");
-Console.WriteLine($"Archetype: {character.Archetype.Name}");
-Console.WriteLine("Attributes:");
-Console.WriteLine($"  Self-Assurance: {character.SelfAssurance}");
-Console.WriteLine($"  Compassion:     {character.Compassion}");
-Console.WriteLine($"  Ambition:       {character.Ambition}");
-Console.WriteLine($"  Drive:          {character.Drive}");
-Console.WriteLine($"  Discernment:    {character.Discernment}");
-Console.WriteLine($"  Bravery:        {character.Bravery}");
+        string? input = Console.ReadLine();
+        Console.Clear();
 
-Console.WriteLine("=== Test Complete ===");
+        switch (input)
+        {
+            case "1":
+                RunCharacterBuilderTest();
+                break;
+            case "2":
+                RunGameLoop();
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Exiting.");
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Runs the Character Builder test demonstrating character creation.
+    /// </summary>
+    private static void RunCharacterBuilderTest()
+    {
+        Console.WriteLine("=== Character Creation Test ===");
+
+        var builder = new CharacterBuilder();
+        var character = builder
+            .WithName("Test Subject")
+            .WithRandomDrive()
+            .Build();
+
+        Console.WriteLine($"Created Character: {character.Name}");
+        Console.WriteLine($"Archetype: {character.Archetype.Name}");
+        Console.WriteLine("Attributes:");
+        Console.WriteLine($"  Self-Assurance: {character.SelfAssurance}");
+        Console.WriteLine($"  Compassion:     {character.Compassion}");
+        Console.WriteLine($"  Ambition:       {character.Ambition}");
+        Console.WriteLine($"  Drive:          {character.Drive}");
+        Console.WriteLine($"  Discernment:    {character.Discernment}");
+        Console.WriteLine($"  Bravery:        {character.Bravery}");
+
+        Console.WriteLine("=== Test Complete ===");
+    }
+
+    /// <summary>
+    /// Runs the main game loop prototype where users interact with storylets.
+    /// </summary>
+    private static void RunGameLoop()
+    {
+        // Display welcome message
+        ConsoleDisplay.ShowWelcome();
+
+        // Initialize character with starting attributes
+        var character = CreateStartingCharacter();
+
+        // Load storylet repository
+        var repository = LoadStoryletRepository();
+
+        // Show initial character state
+        ConsoleDisplay.ShowCharacterState(character);
+        ConsoleDisplay.WaitForKeyPress();
+
+        // Main game loop
+        bool continueGame = true;
+        while (continueGame)
+        {
+            // Get available storylets based on character's current state
+            var availableStorylets = GetAvailableStorylets(repository, character);
+
+            if (!availableStorylets.Any())
+            {
+                // No more storylets available - game ends
+                ConsoleDisplay.ShowNoStoryletsAvailable();
+                break;
+            }
+
+            // Let user choose from available storylets
+            Console.Clear();
+            Storylet storylet;
+
+            if (availableStorylets.Count == 1)
+            {
+                // Only one option, select it automatically
+                storylet = availableStorylets.First();
+            }
+            else
+            {
+                // Multiple options, let user choose
+                ConsoleDisplay.ShowStoryletChoices(availableStorylets, repository, character);
+                int storyletChoice = ConsoleInput.GetChoice(1, availableStorylets.Count) - 1;
+                storylet = availableStorylets[storyletChoice];
+                Console.Clear();
+            }
+
+            // Display the chosen storylet
+            ConsoleDisplay.ShowStorylet(storylet, character);
+
+            // Apply storylet-level effects (if any)
+            foreach (var effect in storylet.Effects)
+            {
+                effect.Apply(character);
+            }
+
+            // Check if storylet has options
+            if (storylet.HasChoices)
+            {
+                // Get available options for this character
+                var availableOptions = storylet.GetAvailableOptions(character);
+
+                if (!availableOptions.Any())
+                {
+                    // No options available despite storylet being available
+                    // This shouldn't normally happen, but handle it gracefully
+                    ConsoleDisplay.ShowMessage("No available options at this time.");
+                    character.MarkStoryletPlayed(storylet.Id);
+                    continue;
+                }
+
+                // Display options and get user choice
+                ConsoleDisplay.ShowOptions(availableOptions);
+                int choiceIndex = ConsoleInput.GetChoice(1, availableOptions.Count) - 1;
+
+                var chosenOption = availableOptions[choiceIndex];
+
+                // Apply option effects first (before showing result with updated header)
+                foreach (var effect in chosenOption.Effects)
+                {
+                    effect.Apply(character);
+                }
+
+                // Display the result with updated character state
+                ConsoleDisplay.ShowOptionResult(chosenOption, character);
+            }
+            else
+            {
+                // Legacy storylet with no options - just auto-apply effects
+                ConsoleDisplay.WaitForKeyPress();
+            }
+
+            // Mark storylet as played
+            character.MarkStoryletPlayed(storylet.Id);
+
+            // Show updated character state
+            ConsoleDisplay.ShowSeparator();
+            ConsoleDisplay.ShowCharacterState(character);
+
+            // Ask if user wants to continue
+            continueGame = ConsoleInput.GetYesNo("Continue your journey?");
+            Console.WriteLine();
+        }
+
+        // Goodbye message
+        ConsoleDisplay.ShowMessage("Thank you for playing Psyche!");
+    }
+
+    /// <summary>Creates a character with starting attributes.</summary>
+    private static Character CreateStartingCharacter()
+    {
+        var character = new Character();
+
+        // Set starting core attributes
+        character.Attributes.SelfAssurance = 50;
+        character.Attributes.Compassion = 50;
+        character.Attributes.Ambition = 50;
+        character.Attributes.Drive = 50;
+        character.Attributes.Discernment = 50;
+        character.Attributes.Bravery = 50;
+
+        // Set starting qualities
+        character.Qualities["social_capital"] = 5;
+
+        return character;
+    }
+
+    /// <summary>Loads the storylet repository from the Data/Storylets directory.</summary>
+    private static IStoryletRepository LoadStoryletRepository()
+    {
+        // Find the Data/Storylets directory
+        var dataDirectory = FindDataDirectory();
+        return new JsonStoryletRepository(dataDirectory);
+    }
+
+    /// <summary>Gets up to 5 available storylets, prioritized by priority with randomization for ties.</summary>
+    private static List<Storylet> GetAvailableStorylets(IStoryletRepository repository, Character character)
+    {
+        var random = new Random();
+
+        return repository.GetAll()
+            .Where(s => !character.HasPlayedStorylet(s.Id)) // Haven't played yet
+            .Where(s => s.Prerequisites.All(prereq => prereq.IsMet(character))) // All prerequisites met
+            .OrderByDescending(s => s.Priority) // Highest priority first
+            .ThenBy(_ => random.Next()) // Randomize ties
+            .Take(5) // Take up to 5
+            .ToList();
+    }
+
+    /// <summary>Finds the Data/Storylets directory by searching up from the current directory.</summary>
+    private static string FindDataDirectory()
+    {
+        var currentDir = Directory.GetCurrentDirectory();
+        var searchDir = currentDir;
+
+        // First, check if we're in a bin directory and go up to project root
+        if (searchDir.Contains("bin"))
+        {
+            var binIndex = searchDir.IndexOf("bin");
+            searchDir = searchDir.Substring(0, binIndex);
+        }
+
+        // Search for Data/Storylets directory
+        for (int i = 0; i < 10; i++)
+        {
+            var dataPath = Path.Combine(searchDir, "Data", "Storylets");
+
+            if (Directory.Exists(dataPath))
+            {
+                return dataPath;
+            }
+
+            var parentDir = Directory.GetParent(searchDir);
+            if (parentDir == null)
+                break;
+            searchDir = parentDir.FullName;
+        }
+
+        // If not found, throw an error
+        throw new DirectoryNotFoundException(
+            $"Could not find Data/Storylets directory. Searched from: {currentDir}. " +
+            $"Please ensure the application is run from the project directory.");
+    }
+}

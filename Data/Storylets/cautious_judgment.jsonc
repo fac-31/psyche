@@ -1,0 +1,135 @@
+{
+  // Moderate Discernment: The character has balanced judgment
+  "id": "cautious_judgment",
+  "title": "The Art of Measured Assessment",
+  "description": "You've learned to balance trust with skepticism, openness with caution.",
+  "content": "You don't automatically believe everything you're told, but you don't assume everyone is lying either. You notice inconsistencies but allow for human imperfection. You trust people until they give you reason not to, but you also pay attention to those reasons when they appear. It's a constant calibration—trying to be neither too gullible nor too cynical, neither too trusting nor too suspicious.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Discernment",
+        "minValue": 30,
+        "maxValue": 70
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "maintain_balance",
+      "text": "Trust your current judgment",
+      "description": "This balance serves you well.",
+      "resultText": "You consciously maintain your current approach—neither loosening nor tightening your standards. When you encounter new people and situations, you give them a fair assessment. You're neither the easiest mark nor the hardest sell. People generally find you reasonable, thoughtful, someone whose opinions are worth considering because they're not reflexively positive or negative. The balance requires constant attention, but it's worth it.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 4
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["balance", "wisdom"]
+    },
+    {
+      "id": "sharpen_analysis",
+      "text": "Develop stronger critical thinking",
+      "description": "You could be seeing things even more clearly.",
+      "resultText": "You start pushing your analytical abilities further—reading more carefully, questioning more deeply, looking for patterns and inconsistencies you might have previously overlooked. Your assessments become more nuanced, more accurate. People start coming to you for your judgment. But you also notice yourself becoming more critical, harder to impress. The world seems less straightforward, more layered with complexity and deception.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Ambition",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "secrets_learned",
+            "delta": 2
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "analysis"]
+    },
+    {
+      "id": "soften_judgment",
+      "text": "Give people more benefit of the doubt",
+      "description": "Maybe you're being too careful.",
+      "resultText": "You consciously ease up on the skepticism, choosing to be more generous in your assessments. When someone's story doesn't quite add up, you let it slide. When their actions seem questionable, you assume positive intent. The relationships become warmer, easier. People open up more when they don't feel constantly evaluated. You might be seeing less clearly, but you're connecting more deeply. Perhaps that's its own kind of wisdom.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -12
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["openness", "connection"]
+    }
+  ],
+  "priority": 46,
+  "category": "psychological",
+  "tags": ["discernment", "balance", "character_development"]
+}

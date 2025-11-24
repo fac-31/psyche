@@ -1,0 +1,134 @@
+{
+  // Low Discernment: The character is overly trusting and easily deceived
+  "id": "naive_trust",
+  "title": "The Blindness of Faith",
+  "description": "You take people at their word, believe their stories, trust their intentions—often to your detriment.",
+  "content": "You want to see the best in people, so you do—even when evidence suggests otherwise. When someone tells you a story, you don't think to question it. When they make promises, you assume they'll keep them. When they show you who they are, you explain it away. You've been burned before, but you keep touching the fire, convinced that this time will be different. Cynicism feels like giving up on humanity, so you choose belief. But belief keeps costing you.",
+  "prerequisites": [
+    {
+      "type": "AttributeRequirement",
+      "properties": {
+        "attributeName": "Discernment",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "maintain_innocence",
+      "text": "Keep believing in people",
+      "description": "Better to be deceived than to become cynical.",
+      "resultText": "You decide that maintaining your faith in humanity is worth the occasional betrayal. Yes, people sometimes lie. Yes, you get taken advantage of. But you refuse to let those experiences harden you. You'd rather be a fool who trusts too much than a cynic who trusts no one. The cost is real, and mounting, but so far you're willing to pay it.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -4
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 1
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["innocence", "vulnerability"]
+    },
+    {
+      "id": "learn_skepticism",
+      "text": "Start questioning what you're told",
+      "description": "Trust, but verify.",
+      "resultText": "You begin the uncomfortable work of developing healthy skepticism. When someone tells you something, you pause before accepting it. When they make promises, you note them and wait to see if they deliver. When their actions contradict their words, you notice. It feels wrong at first, like becoming someone you don't want to be. But you also stop getting hurt as often. The naivety is lifting, revealing a more complex but more accurate view of the world.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 35
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "learning"]
+    },
+    {
+      "id": "seek_guidance",
+      "text": "Ask others to help you see what you're missing",
+      "description": "You don't have to learn every lesson the hard way.",
+      "resultText": "You find people whose judgment you trust and start asking them for reality checks. Before making big decisions, you run them past someone more skeptical. When you're unsure about someone's motives, you ask for another perspective. It's humbling, admitting you can't always see clearly. But their discernment supplements yours. You're still choosing to be open, but now you have safeguards.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Bravery",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 6
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["support", "wisdom"]
+    }
+  ],
+  "priority": 36,
+  "category": "psychological",
+  "tags": ["discernment", "naivety", "character_development"]
+}

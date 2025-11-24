@@ -1,0 +1,134 @@
+{
+  // Discernment Clouded: An event that impairs judgment
+  "id": "discernment_clouded",
+  "title": "When Clarity Becomes Confusion",
+  "description": "Something undermines your ability to judge accurately, leaving you uncertain of what's real.",
+  "content": "You thought you understood the situation, but new information contradicts what seemed obvious. Or maybe you trusted your judgment about someone, only to be proven spectacularly wrong. Or perhaps you're just exhausted, overwhelmed, emotionally compromised—and you realize your usually reliable instincts are failing you. The confidence you had in your ability to read people and situations has been shaken. You're second-guessing everything.",
+  "prerequisites": [],
+  "effects": [
+    {
+      "type": "AttributeEffect",
+      "properties": {
+        "attributeName": "Discernment",
+        "delta": -10
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "doubt_everything",
+      "text": "If you were wrong about this, what else are you wrong about?",
+      "description": "Your judgment clearly can't be trusted.",
+      "resultText": "The failure of discernment spirals into broader self-doubt. You start questioning all your assessments, past and present. Did you ever really understand anything? The uncertainty is paralyzing. You stop trusting your own judgment entirely, either deferring to others or avoiding decisions altogether. It's safer to claim ignorance than to be proven wrong again. But the lack of confidence in your own perception is corrosive.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -8
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -6
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["doubt", "crisis"]
+    },
+    {
+      "id": "analyze_failure",
+      "text": "Figure out specifically where your judgment failed",
+      "description": "This is data about how you can improve.",
+      "resultText": "You resist the urge to panic and instead methodically examine where your discernment broke down. What assumptions did you make? What evidence did you ignore? What emotional factors clouded your judgment? The analysis is humbling but illuminating. You identify specific weaknesses in your thinking—biases you didn't know you had, shortcuts you unconsciously took. Your judgment is temporarily impaired, but you're gaining insight into how to improve it.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -4
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 12
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["learning", "growth"]
+    },
+    {
+      "id": "accept_limitations",
+      "text": "Even good judgment fails sometimes",
+      "description": "Being wrong doesn't mean you're incapable.",
+      "resultText": "You acknowledge the failure without letting it destroy your confidence. Yes, your judgment was wrong this time. That doesn't mean it's always wrong, or that you should stop trusting yourself. You're human. Humans make mistakes. You process the disappointment, extract what lessons you can, and then move forward. Your discernment is temporarily clouded, but you know clarity will return. This isn't who you are; it's just a moment you're passing through.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 50
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": -5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "character_insight",
+            "delta": 8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["acceptance", "resilience"]
+    }
+  ],
+  "priority": 100,
+  "category": "psychological",
+  "tags": ["discernment", "confusion", "character_development"]
+}

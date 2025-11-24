@@ -1,0 +1,155 @@
+{
+  // C3: Third stage of the enemy/conflict chain
+  "id": "C3",
+  "title": "The Conflict Escalates",
+  "description": "The vendetta has spread beyond just you and them—others are being pulled in.",
+  "content": "The conflict is no longer contained. Your enemies are recruiting allies, building coalitions against you. Your friends are being pressured to choose sides. Neutral parties are finding neutrality increasingly impossible. What started as a personal dispute has become a factional war. Everyone around you is being affected, drawn in, forced to position themselves. The collateral damage is mounting, and you're not sure how to stop it without surrendering completely.",
+  "prerequisites": [
+    {
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "C2",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "UnlockStoryletEffect",
+      "properties": {
+        "storyletId": "C3"
+      }
+    },
+    {
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "enemies_made",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    {
+      "id": "build_own_coalition",
+      "text": "Fight faction with faction",
+      "description": "If they're building an army, so will you.",
+      "resultText": "You start actively recruiting your own allies, building your own coalition. You call in favors, make new alliances, turn this into a proper factional conflict. If they want war, you'll give them war. Your side grows stronger, but so does the overall conflict. More people are involved, more invested in the outcome. The possibility of peaceful resolution recedes as the stakes rise. You're winning the escalation game, but you're not sure what victory even means anymore.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 20
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 15
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["escalation", "coalition"]
+    },
+    {
+      "id": "minimize_damage",
+      "text": "Try to contain the spread",
+      "description": "Limit the collateral damage.",
+      "resultText": "You actively work to keep others out of this. You tell friends not to take sides. You decline to leverage relationships for the conflict. You try to keep this between you and your actual enemies rather than dragging everyone else in. It's noble but strategically disadvantageous—you're fighting with one hand tied behind your back while they recruit freely. Some appreciate your restraint; others think you're naive. Maybe both are true.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 60
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": 5
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 12
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["containment", "nobility"]
+    },
+    {
+      "id": "sue_for_peace",
+      "text": "Offer major concessions to end this",
+      "description": "Losing might be better than endless war.",
+      "resultText": "You reach out with a serious peace offer, willing to give significant ground to end the conflict. You're tired. The collateral damage is too much. Your pride isn't worth the destruction this is causing. Some see this as weakness; you see it as wisdom. The conflict ends, though not on favorable terms. You've lost the war to win the peace. Whether that's defeat or maturity, you're not entirely sure. But at least it's over.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Discernment",
+            "minValue": 65
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "enemies_made",
+            "delta": -30
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 15
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -10
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["peace", "concession"]
+    }
+  ],
+  "priority": 2,
+  "category": "conflict",
+  "tags": ["enemies_made", "escalation", "chain", "faction"]
+}

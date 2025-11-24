@@ -1,0 +1,134 @@
+{
+  // Low social_capital: The character has little social influence or connection
+  "id": "isolated_outcast",
+  "title": "On the Outside",
+  "description": "You exist at the margins, with little social influence or connection.",
+  "content": "You're not part of the networks that matter. Invitations don't come. Your opinions aren't sought. When decisions are made, you hear about them after the fact. You watch others move through social spaces with ease—knowing who to talk to, what to say, how to leverage relationships. That world is closed to you. Maybe you never learned the rules, or maybe you broke them somewhere along the way. Either way, you're on the outside looking in.",
+  "prerequisites": [
+    {
+      "type": "QualityRequirement",
+      "properties": {
+        "qualityId": "social_capital",
+        "maxValue": 30
+      }
+    }
+  ],
+  "effects": [],
+  "options": [
+    {
+      "id": "accept_isolation",
+      "text": "Social games aren't worth playing anyway",
+      "description": "Better to be alone than to play politics.",
+      "resultText": "You decide the whole social capital game is beneath you. You don't need their networks, their favor, their inclusion. You'll make your own way, alone if necessary. There's a certain pride in the isolation, a self-sufficiency that feels noble. But as doors keep not opening, as opportunities keep not materializing, you start wondering if your independence is really choice or just defensive rationalization.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": 4
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": 8
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["isolation", "pride"]
+    },
+    {
+      "id": "build_connections",
+      "text": "Start deliberately building relationships",
+      "description": "Social capital can be earned.",
+      "resultText": "You begin the slow work of building connections. You show up places. You help people without expecting immediate return. You learn names, remember details, follow through on commitments. It's awkward at first—you're not naturally good at this. But gradually, incrementally, you start getting included. People begin recognizing you. Your calls get returned. You're building a network, one genuine connection at a time.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Drive",
+            "minValue": 40
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 20
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 6
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Drive",
+            "delta": 5
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["growth", "networking"]
+    },
+    {
+      "id": "find_your_people",
+      "text": "Look for others on the margins",
+      "description": "Build community with fellow outsiders.",
+      "resultText": "Instead of trying to break into existing networks, you look for other people who don't fit. The weird ones, the quiet ones, the ones who don't play the social games well. You build something different—not high-status, but genuine. A network of misfits who actually care about each other rather than what they can get from each other. It's not traditional social capital, but it's valuable in its own way.",
+      "prerequisites": [
+        {
+          "type": "AttributeRequirement",
+          "properties": {
+            "attributeName": "Compassion",
+            "minValue": 45
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": 15
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 10
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -8
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["community", "authenticity"]
+    }
+  ],
+  "priority": 47,
+  "category": "social",
+  "tags": ["social_capital", "isolation", "character_development"]
+}
