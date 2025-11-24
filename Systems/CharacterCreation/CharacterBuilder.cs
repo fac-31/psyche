@@ -8,7 +8,6 @@ public class Character
     public string Name { get; set; }
     public ICharacterArchetype Archetype { get; set; }
     
-    // Core Attributes
     public int SelfAssurance { get; set; }
     public int Compassion { get; set; }
     public int Ambition { get; set; }
