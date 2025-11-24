@@ -6,6 +6,7 @@
 ---
 
 ## 1. Tasks
+
 ### 1a. Open Tasks
 #### 1a1. Due Tasks
 <!-- No due tasks -->
@@ -15,113 +16,74 @@
   - Linear progression arc: 3 more storylets needed (2/5 complete)
   - Branching paths: 3 storylets needed
   - Resource management: 2 storylets needed
-  - Menace/consequence system: 3 storylets needed
+- [ ] 1a2a. Create a set of playable storylets as defined in [Content Implementation Plan](../implementation-plans/narrative/Storylets-Plan.md)
+- [ ] 1a2b. Menace/consequence system: 3 storylets needed
 
 ### 1b. Blocked Tasks
-- **M4: Integration & UI** - Blocked until core quality system integration is verified
-  - StoryletUI console interface
-  - Game loop integration (narrative phase)
-  - BattleNarrativeIntegration
-  - Character UI updates
-  - Battle → Narrative → Exploration flow
-  - Save/load integration
+- [ ] 1b1. Save/load integration
 
 ---
 
 ## 2. MVP Milestones
 
 ### M1: Quality System
-
-**Core Attribute System** (6 personality scales 0-100):
-- Self-Assurance: inadequacy (0) ↔ self-assurance (50) ↔ arrogance (100)
-- Compassion: unempathetic (0) ↔ compassionate (50) ↔ lack of boundaries (100)
-- Ambition: unimaginative (0) ↔ ambitious (50) ↔ fantasist (100)
-- Drive: passive (0) ↔ driven (50) ↔ steamroller (100)
-- Discernment: gullible (0) ↔ discerning (50) ↔ overly critical (100)
-- Bravery: selfish (0) ↔ brave (50) ↔ reckless (100)
-
-**Storylet Quality System**:
-- Quality model definition (Progress, Menace, Resource, Metric types)
-- QualityCollection for managing character qualities
-- Character integration (add 6 core attributes + Qualities property + Drive property)
-- QualityManager for tracking and modification
-- Quality change event notifications
-- Serialization support for core attributes, drive, and qualities
-
-**Defined Qualities for MVP**:
-- Progress: `main_story_progress`, `character_insight`, `faction_standing`
-- Menace: `psychological_strain`, `enemies_made`
-- Resource: `social_capital`, `secrets_learned`
-- Metric: `battles_experienced`, `key_choices_made`
-
-### M2: Storylet Core Engine
-- Storylet model definition (content, prerequisites, effects)
-- IPrerequisite interface and implementations
-  - AttributeRequirement (check core attributes like Bravery ≥ 60)
-  - QualityRequirement (check storylet qualities like social_capital ≥ 10)
-  - CompoundPrerequisite (AND/OR logic)
-  - StoryletPlayedRequirement (for sequencing)
-- IEffect interface and implementations
-  - AttributeEffect (modify core attributes: Bravery +5)
-  - QualityEffect (modify storylet qualities: psychological_strain -10)
-  - UnlockStoryletEffect (enable new storylets)
-  - CompoundEffect (multiple effects)
-- Prerequisite evaluation logic
-- Effect application system
-
-**Example Prerequisites**:
-- Simple: Bravery ≥ 60
-- Simple: social_capital ≥ 10
-- Compound: (Compassion ≥ 60 AND psychological_strain < 50)
-- Complex: ((Bravery ≥ 60 OR Discernment ≥ 70) AND social_capital ≥ 5)
-
-**Example Effects**:
-- Modify attribute: Bravery +5, Self-Assurance +2
-- Modify quality: psychological_strain -10, social_capital +5
-- Mixed: Compassion +3, enemies_made -1, main_story_progress +1
-
-### M3: Storylet Management
-- StoryletRepository (storage and retrieval)
-- JSON storylet schema definition
-- JSON loading and parsing
-- StoryletAvailability calculator (filter by prerequisites)
-- Priority/weighting system for display order
-- NarrativeManager (main API orchestration)
-- Storylet execution and effect application
-- Played storylet tracking
+- [ ] Incorporate the **Core Attribute System** that the Character creation will define
+  - 6 personality scales 0-100:
+    - Self-Assurance: inadequacy (0) ↔ self-assurance (50) ↔ arrogance (100)
+    - Compassion: unempathetic (0) ↔ compassionate (50) ↔ lack of boundaries (100)
+    - Ambition: unimaginative (0) ↔ ambitious (50) ↔ fantasist (100)
+    - Drive: passive (0) ↔ driven (50) ↔ steamroller (100)
+    - Discernment: gullible (0) ↔ discerning (50) ↔ overly critical (100)
+    - Bravery: selfish (0) ↔ brave (50) ↔ reckless (100)
+- [ ] Implement a **Storylet Quality System**:
+  - Quality model definition (Progress, Menace, Resource, Metric types)
+  - QualityCollection for managing character qualities
+  - Character integration (add 6 core attributes + Qualities property + Drive property)
+  - QualityManager for tracking and modification
+  - Quality change event notifications
+  - Serialization support for core attributes, drive, and qualities
+- [ ] Create mechanical representations of the **Defined Qualities for MVP**:
+  - Progress: `main_story_progress`, `character_insight`, `faction_standing`
+  - Menace: `psychological_strain`, `enemies_made`
+  - Resource: `social_capital`, `secrets_learned`
+  - Metric: `battles_experienced`, `key_choices_made`
 
 ### M4: Integration & UI
-- StoryletUI console interface
-  - Display available storylets
-  - Show quality requirements
-  - Present narrative content
-  - Display quality changes
-- Game loop integration (narrative phase)
-- BattleNarrativeIntegration (battle outcomes → qualities)
-- Character UI updates (show qualities)
-- Battle → Narrative → Exploration flow
-- Save/load integration for qualities and played history
+> See "Phase 4" section in [Storylets Implementation Plan](../implementation-plans/narrative/Storylets-Plan.md)
+- [ ] Create a `StoryletUI` console interface
+  - [ ] Display available storylets
+  - [ ] Show quality requirements
+  - [ ] Present narrative content
+  - [ ] Display quality changes
+- [ ] Game loop integration (narrative phase)
+- [ ] BattleNarrativeIntegration (battle outcomes → qualities)
+- [ ] Character UI updates (show qualities)
+- [ ] Battle → Narrative → Exploration flow
+- [ ] Save/load integration for qualities and played history
 
 ### M5: Content & Testing
 - Create 10-15 demo storylets
   - **Linear progression arc** (5 storylets): Uses `main_story_progress` to unlock sequentially. Gates on core attributes (Bravery, Compassion) and increases `character_insight`
   - **Branching paths** (3 storylets): Choices affect both core attributes and qualities. High Compassion path vs High Bravery path, different `social_capital` and `enemies_made` outcomes
   - **Resource management** (2 storylets): Requires spending `social_capital` or `secrets_learned`, rewards with attribute boosts
-  - **Menace/consequence system** (3 storylets): Tracks `psychological_strain` buildup. High strain unlocks crisis storylets. Resolution decreases strain, increases `character_insight`
-- Unit test suite for quality system
-  - Test core attribute modifications
-  - Test storylet quality modifications
-  - Test bounds checking (0-100 for attributes)
-- Unit tests for prerequisites and effects
-  - AttributeRequirement and QualityRequirement
-  - Compound prerequisites with attributes and qualities
-  - AttributeEffect and QualityEffect
-- Unit tests for storylet availability
-- Integration tests (full narrative flow)
-  - Battle → attribute changes → storylet unlock
-  - Storylet effect → new storylets available
-- End-to-end playthrough testing
-- Example playthrough documentation showing attribute and quality changes
+- [ ] Create a **Menace/Consequence system** (3 storylets)
+  - [ ] Tracks `psychological_strain` buildup.
+  - [ ] High strain unlocks crisis storylets.
+  - [ ] Resolution decreases strain, increases `character_insight`
+- [ ] Create a Unit test suite for quality system
+  - [ ] Test core attribute modifications
+  - [ ] Test storylet quality modifications
+  - [ ] Test bounds checking (0-100 for attributes)
+- [ ] Create Unit tests for prerequisites and effects
+  - [ ] AttributeRequirement and QualityRequirement
+  - [ ] Compound prerequisites with attributes and qualities
+  - [ ] AttributeEffect and QualityEffect
+- [ ] Create Unit tests for storylet availability
+- [ ] Create Integration tests (full narrative flow)
+  - [ ] Battle → attribute changes → storylet unlock
+  - [ ] Storylet effect → new storylets available
+- [ ] Create End-to-end playthrough testing
+- [ ] Create example playthrough documentation showing attribute and quality changes
 
 ---
 
