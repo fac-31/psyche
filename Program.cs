@@ -3,37 +3,73 @@ using Psyche.Models;
 using Psyche.Models.Mocks;
 using Psyche.Systems.CharacterCreation;
 using Psyche.UI;
+using Character = Psyche.Models.Mocks.Character;
 
 namespace Psyche;
 
-Console.WriteLine("=== Character Creation Test ===");
-
-Console.WriteLine($"Created Character: {character.Name}");
-Console.WriteLine($"Archetype: {character.Archetype.Name}");
-Console.WriteLine("Attributes:");
-Console.WriteLine($"  Self-Assurance: {character.SelfAssurance}");
-Console.WriteLine($"  Compassion:     {character.Compassion}");
-Console.WriteLine($"  Ambition:       {character.Ambition}");
-Console.WriteLine($"  Drive:          {character.Drive}");
-Console.WriteLine($"  Discernment:    {character.Discernment}");
-Console.WriteLine($"  Bravery:        {character.Bravery}");
-
-Console.WriteLine("=== Test Complete ===");
-
-var builder = new CharacterBuilder();
-var character = builder
-    .WithName("Test Subject")
-    .WithRandomDrive()
-    .Build();
-
-
 /// <summary>
 /// Main entry point for the Psyche application.
-/// Implements a basic playable game loop where users interact with storylets.
+/// Provides a menu to choose between Character Builder test and Game Loop Prototype.
 /// </summary>
 class Program
 {
     static void Main(string[] args)
+    {
+        Console.WriteLine("=== PSYCHE ===");
+        Console.WriteLine();
+        Console.WriteLine("Choose a mode:");
+        Console.WriteLine("1. Character Builder Test");
+        Console.WriteLine("2. Game Loop Prototype");
+        Console.WriteLine();
+        Console.Write("Enter your choice (1 or 2): ");
+
+        string? input = Console.ReadLine();
+        Console.Clear();
+
+        switch (input)
+        {
+            case "1":
+                RunCharacterBuilderTest();
+                break;
+            case "2":
+                RunGameLoop();
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Exiting.");
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Runs the Character Builder test demonstrating character creation.
+    /// </summary>
+    private static void RunCharacterBuilderTest()
+    {
+        Console.WriteLine("=== Character Creation Test ===");
+
+        var builder = new CharacterBuilder();
+        var character = builder
+            .WithName("Test Subject")
+            .WithRandomDrive()
+            .Build();
+
+        Console.WriteLine($"Created Character: {character.Name}");
+        Console.WriteLine($"Archetype: {character.Archetype.Name}");
+        Console.WriteLine("Attributes:");
+        Console.WriteLine($"  Self-Assurance: {character.SelfAssurance}");
+        Console.WriteLine($"  Compassion:     {character.Compassion}");
+        Console.WriteLine($"  Ambition:       {character.Ambition}");
+        Console.WriteLine($"  Drive:          {character.Drive}");
+        Console.WriteLine($"  Discernment:    {character.Discernment}");
+        Console.WriteLine($"  Bravery:        {character.Bravery}");
+
+        Console.WriteLine("=== Test Complete ===");
+    }
+
+    /// <summary>
+    /// Runs the main game loop prototype where users interact with storylets.
+    /// </summary>
+    private static void RunGameLoop()
     {
         // Display welcome message
         ConsoleDisplay.ShowWelcome();
