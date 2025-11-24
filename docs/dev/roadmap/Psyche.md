@@ -8,6 +8,9 @@
 > [!IMPORTANT]
 > This is the main hub document for the "Psyche" project.
 > Module-specific details are in their respective roadmap files.
+> - [ ] **Character System** - See [character-mvp.md](./character-mvp.md)
+> - [ ] **Battle System** - See [battleSystem-mvp.md](./battleSystem-mvp.md)
+> - [ ] **Narrative System** - See [storylets-mvp.md](./storylets-mvp.md)
 
 ---
 
@@ -26,42 +29,43 @@
 
 ## 2. MVP Milestones
 
-### Project Setup
+### 2.1. Project Setup
 - [x] Initialize C# .NET 9.0 project
 - [x] Configure project structure
 - [ ] Set up unit testing framework
 - [ ] Establish code organization patterns
 
-### Core Modules
-- [ ] **Character System** - See [character-mvp.md](./character-mvp.md)
-  - Stats, skills, equipment, inventory, and progression
-- [ ] **Battle System** - See [battleSystem-mvp.md](./battleSystem-mvp.md)
-  - Turn-based combat with enemy AI and UI
+### 2.2. Basic User Experience
+- [ ] Define & implement approach to displaying content to user
+- [ ] Define & implement approach to taking input from the user
+- [ ] Implement a basic playable game loop (where the user can start the app and begin interacting with the mechanics)
 
-### Integration
+### 2.3. Integration
 - [ ] Connect character stats to battle calculations
 - [ ] Battle reward system (XP, items)
 - [ ] Save/load system for character data
 - [ ] Game loop with battle transitions
 
+### 2.4. Enhanced User Experience
+- [ ] Menu system
+
 ---
 
 ## 3. Beyond MVP: Future Features
 
-### Game World
+### 3.1. Game World
 - World map and navigation
 - Multiple locations and areas
 - NPCs and dialogue system
 - Quest/mission system
 
-### Progression Systems
+### 3.2. Progression Systems
 - Story progression
 - Multiple playable characters
 - Side quests and optional content
 - Achievement system
 
-### Polish and UX
-- Menu system
+### 3.3. Polish and UX
 - Settings and configuration
 - Tutorial system
 - Sound and music integration
