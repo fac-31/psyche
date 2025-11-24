@@ -128,7 +128,7 @@
       "tags": ["healing", "insight"]
     }
   ],
-  "priority": 10,
+  "priority": 100,
   "category": "psychological",
   "tags": ["self_assurance", "inadequacy", "character_development"]
 }

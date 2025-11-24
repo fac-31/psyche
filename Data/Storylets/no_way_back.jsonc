@@ -163,7 +163,7 @@
       "tags": ["surrender", "survival"]
     }
   ],
-  "priority": 15,
+  "priority": 75,
   "category": "conflict",
   "tags": ["enemies_made", "point_of_no_return", "chain", "culmination"]
 }

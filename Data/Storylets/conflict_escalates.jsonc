@@ -149,7 +149,7 @@
       "tags": ["peace", "concession"]
     }
   ],
-  "priority": 15,
+  "priority": 2,
   "category": "conflict",
   "tags": ["enemies_made", "escalation", "chain", "faction"]
 }

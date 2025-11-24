@@ -128,7 +128,7 @@
       "tags": ["acceptance", "resilience"]
     }
   ],
-  "priority": 10,
+  "priority": 100,
   "category": "psychological",
   "tags": ["discernment", "confusion", "character_development"]
 }

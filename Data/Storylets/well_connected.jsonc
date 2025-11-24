@@ -135,7 +135,7 @@
       "tags": ["generosity", "mentorship"]
     }
   ],
-  "priority": 15,
+  "priority": 99,
   "category": "social",
   "tags": ["social_capital", "influence", "chain_start"]
 }

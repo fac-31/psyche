@@ -128,7 +128,7 @@
       "tags": ["transformation", "alliance"]
     }
   ],
-  "priority": 10,
+  "priority": 6,
   "category": "conflict",
   "tags": ["enemies_made", "reconciliation", "character_development"]
 }

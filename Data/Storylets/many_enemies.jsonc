@@ -135,7 +135,7 @@
       "tags": ["escalation", "conflict"]
     }
   ],
-  "priority": 15,
+  "priority": 4,
   "category": "conflict",
   "tags": ["enemies_made", "antagonism", "chain_start"]
 }
