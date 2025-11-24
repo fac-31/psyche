@@ -1,0 +1,226 @@
+{ // The Dangerous Path
+  "id": "dangerous_choice",
+  "title": "The Dangerous Path",
+  "description": "Only the brave or discerning dare walk this way.",
+  "content": "The path ahead is treacherous. Dark clouds gather overhead, and the way forward seems fraught with peril. Your heart pounds as you consider your options.",
+  "prerequisites": [
+    { // Must have played first_encounter
+      "type": "StoryletPlayedRequirement",
+      "properties": {
+        "storyletId": "first_encounter",
+        "mustHavePlayed": true
+      }
+    }
+  ],
+  "effects": [
+    { // Psychological Strain +5
+      "type": "QualityEffect",
+      "properties": {
+        "qualityId": "psychological_strain",
+        "delta": 5
+      }
+    }
+  ],
+  "options": [
+    { // Brave Charge
+      "id": "brave_charge",
+      "text": "Charge forward bravely",
+      "description": "Face the danger head-on with courage",
+      "resultText": "You steel your nerves and rush forward. The danger is real, but your bravery carries you through. Your confidence grows, though the experience takes its toll.",
+      "prerequisites": [
+        {
+          "type": "CompoundPrerequisite",
+          "properties": {
+            "logic": "And",
+            "prerequisites": [
+              {
+                "type": "AttributeRequirement",
+                "properties": {
+                  "attributeName": "Bravery",
+                  "minValue": 60
+                }
+              },
+              {
+                "type": "QualityRequirement",
+                "properties": {
+                  "qualityId": "psychological_strain",
+                  "maxValue": 50
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "CompoundEffect",
+          "properties": {
+            "effects": [
+              {
+                "type": "AttributeEffect",
+                "properties": {
+                  "attributeName": "Bravery",
+                  "delta": 5
+                }
+              },
+              {
+                "type": "QualityEffect",
+                "properties": {
+                  "qualityId": "psychological_strain",
+                  "delta": 10
+                }
+              },
+              {
+                "type": "QualityEffect",
+                "properties": {
+                  "qualityId": "main_story_progress",
+                  "delta": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["bravery", "danger", "story_progression"]
+    },
+    { // Discerning Route
+      "id": "discerning_route",
+      "text": "Find a safer route",
+      "description": "Use your wits to navigate around the danger",
+      "resultText": "You study the terrain carefully and spot a less obvious path. Your discernment serves you well - you make progress while avoiding the worst of the danger.",
+      "prerequisites": [
+        {
+          "type": "CompoundPrerequisite",
+          "properties": {
+            "logic": "Or",
+            "prerequisites": [
+              {
+                "type": "AttributeRequirement",
+                "properties": {
+                  "attributeName": "Discernment",
+                  "minValue": 70
+                }
+              },
+              {
+                "type": "CompoundPrerequisite",
+                "properties": {
+                  "logic": "And",
+                  "prerequisites": [
+                    {
+                      "type": "AttributeRequirement",
+                      "properties": {
+                        "attributeName": "Discernment",
+                        "minValue": 50
+                      }
+                    },
+                    {
+                      "type": "QualityRequirement",
+                      "properties": {
+                        "qualityId": "social_capital",
+                        "minValue": 5
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Discernment",
+            "delta": 5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "main_story_progress",
+            "delta": 1
+          }
+        }
+      ],
+      "priority": 10,
+      "tags": ["discernment", "clever", "story_progression"]
+    },
+    { // Seek Help
+      "id": "seek_help",
+      "text": "Seek help from your connections",
+      "description": "Use your social capital to find assistance",
+      "resultText": "You reach out to those you've helped before. Their assistance makes the journey much easier, though it costs you some of your accumulated goodwill.",
+      "prerequisites": [
+        {
+          "type": "QualityRequirement",
+          "properties": {
+            "qualityId": "social_capital",
+            "minValue": 10
+          }
+        }
+      ],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "social_capital",
+            "delta": -5
+          }
+        },
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "main_story_progress",
+            "delta": 1
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "Compassion",
+            "delta": 2
+          }
+        }
+      ],
+      "priority": 8,
+      "tags": ["social", "resource_management", "story_progression"]
+    },
+    { // Turn Back
+      "id": "turn_back",
+      "text": "Turn back for now",
+      "description": "This path is too dangerous - retreat and prepare better",
+      "resultText": "Wisdom is knowing when to retreat. You turn back, resolving to return when you're better prepared. Sometimes survival is victory enough.",
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "QualityEffect",
+          "properties": {
+            "qualityId": "psychological_strain",
+            "delta": -10
+          }
+        },
+        {
+          "type": "AttributeEffect",
+          "properties": {
+            "attributeName": "SelfAssurance",
+            "delta": -3
+          }
+        }
+      ],
+      "priority": 5,
+      "tags": ["retreat", "cautious"]
+    }
+  ],
+  "priority": 20,
+  "category": "main_story",
+  "tags": ["danger", "pivotal", "multiple_paths"]
+}

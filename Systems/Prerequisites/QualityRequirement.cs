@@ -8,24 +8,16 @@ using Psyche.Models.Mocks;
 /// </summary>
 public class QualityRequirement : IPrerequisite
 {
-    /// <summary>
-    /// The ID of the quality to check (e.g., "social_capital", "psychological_strain").
-    /// </summary>
+    /// <summary>The ID of the quality to check (e.g., "social_capital", "psychological_strain").</summary>
     public string QualityId { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Minimum required value (inclusive). Null means no minimum.
-    /// </summary>
+    /// <summary>Minimum required value (inclusive). Null means no minimum.</summary>
     public int? MinValue { get; set; }
 
-    /// <summary>
-    /// Maximum allowed value (inclusive). Null means no maximum.
-    /// </summary>
+    /// <summary>Maximum allowed value (inclusive). Null means no maximum.</summary>
     public int? MaxValue { get; set; }
 
-    /// <summary>
-    /// Evaluates whether the character's quality meets the specified bounds.
-    /// </summary>
+    /// <summary>Evaluates whether the character's quality meets the specified bounds.</summary>
     public bool IsMet(Character character)
     {
         var value = character.GetQualityValue(QualityId);
@@ -39,9 +31,7 @@ public class QualityRequirement : IPrerequisite
         return true;
     }
 
-    /// <summary>
-    /// Gets a human-readable description of this requirement.
-    /// </summary>
+    /// <summary>Gets a human-readable description of this requirement.</summary>
     public string GetDisplayText()
     {
         if (MinValue.HasValue && MaxValue.HasValue)
